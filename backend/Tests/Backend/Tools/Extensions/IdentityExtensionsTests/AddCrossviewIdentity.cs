@@ -21,7 +21,7 @@ using Xunit;
 
 namespace Tests.Backend.Tools.Extensions.IdentityExtensionsTests
 {
-	public class AddCrossviewIdentity
+	public class AddBastionIdentity
 	{
 		[Fact]
 		public void CallsAddCustomDatabase()
@@ -30,7 +30,7 @@ namespace Tests.Backend.Tools.Extensions.IdentityExtensionsTests
 						 .AddJsonFile("appsettings.json")
 						 .Build();
 			var services = new ServiceCollection();
-			services.AddCrossviewIdentity(config);
+			services.AddBastionIdentity(config);
 			var container = services.BuildServiceProvider();
 
 			var db = container.GetService<ApplicationDbContext>();
@@ -44,7 +44,7 @@ namespace Tests.Backend.Tools.Extensions.IdentityExtensionsTests
 						 .AddJsonFile("appsettings.json")
 						 .Build();
 			var services = new ServiceCollection();
-			services.AddCrossviewIdentity(config);
+			services.AddBastionIdentity(config);
 			var container = services.BuildServiceProvider();
 
 			// AddIdentityCore
@@ -87,7 +87,7 @@ namespace Tests.Backend.Tools.Extensions.IdentityExtensionsTests
 						 .AddJsonFile("appsettings.json")
 						 .Build();
 			var services = new ServiceCollection();
-			services.AddCrossviewIdentity(config);
+			services.AddBastionIdentity(config);
 			var container = services.BuildServiceProvider();
 
 			// AddAuthentication
@@ -106,7 +106,7 @@ namespace Tests.Backend.Tools.Extensions.IdentityExtensionsTests
 						 .AddJsonFile("appsettings.json")
 						 .Build();
 			var services = new ServiceCollection();
-			services.AddCrossviewIdentity(config);
+			services.AddBastionIdentity(config);
 			var container = services.BuildServiceProvider();
 
 			var authorizationOptions = container.GetService<IOptions<AuthorizationOptions>>();
@@ -123,7 +123,7 @@ namespace Tests.Backend.Tools.Extensions.IdentityExtensionsTests
 						 .AddJsonFile("appsettings.json")
 						 .Build();
 			var services = new ServiceCollection();
-			services.AddCrossviewIdentity(config);
+			services.AddBastionIdentity(config);
 			var container = services.BuildServiceProvider();
 
 			// var cookies = container.GetService<IOptions<CookieAuthenticationOptions>>()
@@ -141,7 +141,7 @@ namespace Tests.Backend.Tools.Extensions.IdentityExtensionsTests
 
 			var httpContext = new DefaultHttpContext();
 
-			var authScheme = new AuthenticationScheme("stub", "Crossview Stub", typeof(IAuthenticationHandler));
+			var authScheme = new AuthenticationScheme("stub", "Bastion Stub", typeof(IAuthenticationHandler));
 			var authProps = new AuthenticationProperties();
 
 			var unauthorizedContext = new RedirectContext<CookieAuthenticationOptions>(httpContext, authScheme, options, authProps, string.Empty);
@@ -173,7 +173,7 @@ namespace Tests.Backend.Tools.Extensions.IdentityExtensionsTests
 						 .AddJsonFile("appsettings.json")
 						 .Build();
 			var services = new ServiceCollection();
-			services.AddCrossviewIdentity(config);
+			services.AddBastionIdentity(config);
 			var container = services.BuildServiceProvider();
 
 			var options = container.GetService<IOptions<IdentityOptions>>()?.Value;

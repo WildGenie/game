@@ -29,7 +29,7 @@ namespace Tests.Backend.Controllers.AccountControllerTests
 
 			var login = new LoginModel
 			{
-				AccountName = "crossview",
+				AccountName = "bastion",
 				Password = "something secure"
 			};
 
@@ -59,7 +59,7 @@ namespace Tests.Backend.Controllers.AccountControllerTests
 
 			var login = new LoginModel
 			{
-				AccountName = "crossview",
+				AccountName = "bastion",
 				Password = "something secure"
 			};
 
@@ -89,7 +89,7 @@ namespace Tests.Backend.Controllers.AccountControllerTests
 
 			var login = new LoginModel
 			{
-				AccountName = "crossview",
+				AccountName = "bastion",
 				Password = "something secure",
 				RecaptchaToken = "Google sent me"
 			};
@@ -120,7 +120,7 @@ namespace Tests.Backend.Controllers.AccountControllerTests
 
 			var login = new LoginModel
 			{
-				AccountName = "crossview",
+				AccountName = "bastion",
 				Password = "something secure"
 			};
 
@@ -150,7 +150,7 @@ namespace Tests.Backend.Controllers.AccountControllerTests
 
 			var login = new LoginModel
 			{
-				AccountName = "crossview",
+				AccountName = "bastion",
 				Password = "something secure"
 			};
 
@@ -179,7 +179,7 @@ namespace Tests.Backend.Controllers.AccountControllerTests
 
 			var login = new LoginModel
 			{
-				AccountName = "crossview",
+				AccountName = "bastion",
 				Password = "something secure"
 			};
 
@@ -209,7 +209,7 @@ namespace Tests.Backend.Controllers.AccountControllerTests
 
 			var login = new LoginModel
 			{
-				AccountName = "crossview",
+				AccountName = "bastion",
 				Password = "something secure",
 				RecaptchaToken = "Google sent me"
 			};
@@ -240,7 +240,7 @@ namespace Tests.Backend.Controllers.AccountControllerTests
 
 			var login = new LoginModel
 			{
-				AccountName = "crossview",
+				AccountName = "bastion",
 				Password = "something secure"
 			};
 
@@ -271,7 +271,7 @@ namespace Tests.Backend.Controllers.AccountControllerTests
 
 			var login = new LoginModel
 			{
-				AccountName = "crossview",
+				AccountName = "bastion",
 				Password = "something secure"
 			};
 
@@ -301,7 +301,7 @@ namespace Tests.Backend.Controllers.AccountControllerTests
 
 			var login = new LoginModel
 			{
-				AccountName = "crossview",
+				AccountName = "bastion",
 				Password = "something secure",
 				RecaptchaToken = "Google sent me"
 			};
@@ -332,7 +332,7 @@ namespace Tests.Backend.Controllers.AccountControllerTests
 
 			var login = new LoginModel
 			{
-				AccountName = "crossview",
+				AccountName = "bastion",
 				Password = "something secure"
 			};
 
@@ -362,7 +362,7 @@ namespace Tests.Backend.Controllers.AccountControllerTests
 
 			var login = new LoginModel
 			{
-				AccountName = "crossview",
+				AccountName = "bastion",
 				Password = "something secure",
 				RecaptchaToken = "Google sent me"
 			};

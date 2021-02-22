@@ -30,9 +30,9 @@ namespace Tests.Backend.Controllers.AccountControllerTests
 				AcceptTos = false,
 				Password = "hello1!...",
 				ConfirmPassword = "hello1!...",
-				Email = "no-reply@crossviewsoftware.io",
+				Email = "no-reply@bastionofshadows.com",
 				RecaptchaToken = "abc123!.alkjsadfoijwe",
-				UserName = "crossview1"
+				UserName = "bastion1"
 			};
 			
 			var controller = new AccountController(logger.Object, options, userService.Object, signInService.Object, emailSenderService.Object, recaptchaService.Object);
@@ -64,9 +64,9 @@ namespace Tests.Backend.Controllers.AccountControllerTests
 				AcceptTos = true,
 				Password = "hello1!...",
 				ConfirmPassword = "hello1!...",
-				Email = "no-reply@crossviewsoftware.io",
+				Email = "no-reply@bastionofshadows.com",
 				RecaptchaToken = "abc123!.alkjsadfoijwe",
-				UserName = "crossview1"
+				UserName = "bastion1"
 			};
 			
 			var controller = new AccountController(logger.Object, options, userService.Object, signInService.Object, emailSenderService.Object, recaptchaService);
@@ -98,9 +98,9 @@ namespace Tests.Backend.Controllers.AccountControllerTests
 				AcceptTos = true,
 				Password = "hello1!...",
 				ConfirmPassword = "hello1!...",
-				Email = "no-reply@crossviewsoftware.io",
+				Email = "no-reply@bastionofshadows.com",
 				RecaptchaToken = "abc123!.alkjsadfoijwe",
-				UserName = "crossview1"
+				UserName = "bastion1"
 			};
 			
 			var controller = new AccountController(logger.Object, options, userService.Object, signInService.Object, emailSenderService.Object, recaptchaService);
@@ -114,7 +114,7 @@ namespace Tests.Backend.Controllers.AccountControllerTests
 
 			Assert.Contains("UserName", response.Errors.Keys);
 			Assert.Single(response.Errors["UserName"]);
-			Assert.Equal("User name 'crossview' is already taken.", response.Errors["UserName"][0]);
+			Assert.Equal("User name 'bastion' is already taken.", response.Errors["UserName"][0]);
 		}
 
 		[Fact]
@@ -132,9 +132,9 @@ namespace Tests.Backend.Controllers.AccountControllerTests
 				AcceptTos = true,
 				Password = "hello1!...",
 				ConfirmPassword = "hello1!...",
-				Email = "no-reply@crossviewsoftware.io",
+				Email = "no-reply@bastionofshadows.com",
 				RecaptchaToken = "abc123!.alkjsadfoijwe",
-				UserName = "crossview1"
+				UserName = "bastion1"
 			};
 			
 			var controller = new AccountController(logger.Object, options, userService.Object, signInService.Object, emailSenderService.Object, recaptchaService);

@@ -2,9 +2,9 @@ namespace Core
 {
 	public static class EmailMessages
 	{
-		private const string ConfirmationUrl = "https://www.crossviewsoftware.io/users/confirm";
-		private const string EmailChangeUrl = "https://www.crossviewsoftware.io/account/email";
-		private const string ResetPasswordUrl = "https://www.crossviewsoftware.io/users/reset-password";
+		private const string ConfirmationUrl = "https://www.bastionofshadows.com/users/confirm";
+		private const string EmailChangeUrl = "https://www.bastionofshadows.com/account/email";
+		private const string ResetPasswordUrl = "https://www.bastionofshadows.com/users/reset-password";
 		private const string TeamName = "The Website Team";
 
 		public static string WelcomeEmailHtml(string username, string userId, string verificationCode)

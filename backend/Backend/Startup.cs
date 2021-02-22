@@ -20,7 +20,7 @@ namespace Backend
 		{
 			// All services have been added through extension methods
 			// found in Backend.Tools.Extensions.ServiceCollectionExtensions
-			services.AddCrossviewServices(Configuration);
+			services.AddBastionServices(Configuration);
 		}
 
 		// Excluded from coverage
@@ -30,7 +30,7 @@ namespace Backend
 		{
 			// All services have been configured through extension methods
 			// found in Backend.Tools.Extensions.ApplicationBuilderExtensions
-			app.ConfigureCrossviewApplication();
+			app.ConfigureBastionApplication();
 		}
 	}
 }

@@ -65,13 +65,13 @@ namespace Tests.Mocks
 			{
 				var user = new ApplicationUser
 				{
-					UserName = "crossview",
+					UserName = "bastion",
 					ConcurrencyStamp = "Don't commit if I'm not the same!",
-					Email = "no-reply@crossviewsoftware.io",
+					Email = "no-reply@bastionofshadows.com",
 					EmailConfirmed = emailConfirmed,
 					Id = "something unique",
-					NormalizedUserName = "CROSSVIEW",
-					NormalizedEmail = "NO-REPLY@CROSSVIEWSOFTWARE.IO",
+					NormalizedUserName = "BASTION",
+					NormalizedEmail = "NO-REPLY@bastionofshadows.com",
 					AccessFailedCount = accessFailedCount,
 					LockoutEnd = lockoutEnd,
 					PendingEmail = pendingEmail
@@ -92,7 +92,7 @@ namespace Tests.Mocks
 				updateAsync.ReturnsAsync(IdentityResult.Failed(describer.DefaultError()));
 			}
 
-			var createUserResult = userCreated ? IdentityResult.Success : IdentityResult.Failed(describer.DuplicateUserName("crossview"));
+			var createUserResult = userCreated ? IdentityResult.Success : IdentityResult.Failed(describer.DuplicateUserName("bastion"));
 			var createAsync = mock.Setup(s => s.CreateAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()));
 
 			if (createUserThrows)
@@ -134,13 +134,13 @@ namespace Tests.Mocks
 				.ReturnsAsync(newPasswordValid ? IdentityResult.Success : IdentityResult.Failed(describer.PasswordRequiresDigit()));
 
 			mock.Setup(s => s.GetLoginsAsync(It.IsAny<ApplicationUser>()))
-				.ReturnsAsync(hasLoginProviders ? new List<UserLoginInfo> {new UserLoginInfo("Crossview", "abc123", "Crossview Software LLC")} : new List<UserLoginInfo>());
+				.ReturnsAsync(hasLoginProviders ? new List<UserLoginInfo> {new UserLoginInfo("Bastion", "abc123", "Bastion of Shadows")} : new List<UserLoginInfo>());
 
 			mock.Setup(s => s.DeleteAsync(It.IsAny<ApplicationUser>()))
 				.ReturnsAsync(deleteSuccessful ? IdentityResult.Success : IdentityResult.Failed(describer.ConcurrencyFailure()));
 
 			mock.Setup(s => s.AddToRoleAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()))
-				.ReturnsAsync(addToRoleSuccessful ? IdentityResult.Success : IdentityResult.Failed(describer.UserAlreadyInRole("crossview")))
+				.ReturnsAsync(addToRoleSuccessful ? IdentityResult.Success : IdentityResult.Failed(describer.UserAlreadyInRole("bastion")))
 				.Verifiable();
 
 			mock.Setup(s => s.AddToRolesAsync(It.IsAny<ApplicationUser>(), It.IsAny<IEnumerable<string>>()))
@@ -199,7 +199,7 @@ namespace Tests.Mocks
 				logger.Object);
 
 			manager.Setup(m => m.CreateAsync(It.IsAny<Role>()))
-				   .ReturnsAsync(roleCreated ? IdentityResult.Success : IdentityResult.Failed(describer.InvalidRoleName("crossview")))
+				   .ReturnsAsync(roleCreated ? IdentityResult.Success : IdentityResult.Failed(describer.InvalidRoleName("bastion")))
 				   .Verifiable();
 
 			manager.Setup(m => m.FindByNameAsync(It.IsAny<string>()))

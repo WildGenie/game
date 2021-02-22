@@ -44,8 +44,8 @@ namespace Tests.Backend.Controllers.UsersControllerTests
 			var user = response.Result;
 			
 			Assert.Equal("something unique", user.Id);
-			Assert.Equal("crossview", user.UserName);
-			Assert.Equal("no-reply@crossviewsoftware.io", user.Email);
+			Assert.Equal("bastion", user.UserName);
+			Assert.Equal("no-reply@bastionofshadows.com", user.Email);
 			Assert.True(user.IsVerified);
 			Assert.Empty(user.Roles);
 		}

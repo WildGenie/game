@@ -15,7 +15,7 @@ namespace Backend.Tools.Extensions
 	[ExcludeFromCodeCoverage]
 	public static class ApplicationBuilderExtensions
 	{
-		public static void ConfigureCrossviewApplication(this IApplicationBuilder app)
+		public static void ConfigureBastionApplication(this IApplicationBuilder app)
 		{
 			app.UseSerilogRequestLogging();
 

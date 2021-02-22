@@ -22,8 +22,8 @@ namespace Tests.Backend.Controllers.AccountControllerTests
 
 			var emailChange = new InitiateEmailChangeModel
 			{
-				Email = "no-reply@crossviewsoftware.io",
-				ConfirmEmail = "no-reply@crossviewsoftware.io",
+				Email = "no-reply@bastionofshadows.com",
+				ConfirmEmail = "no-reply@bastionofshadows.com",
 				ConfirmPassword = "super secure password"
 			};
 
@@ -46,8 +46,8 @@ namespace Tests.Backend.Controllers.AccountControllerTests
 
 			var emailChange = new InitiateEmailChangeModel
 			{
-				Email = "no-reply@crossviewsoftware.io",
-				ConfirmEmail = "no-reply@crossviewsoftware.io",
+				Email = "no-reply@bastionofshadows.com",
+				ConfirmEmail = "no-reply@bastionofshadows.com",
 				ConfirmPassword = "super secure password"
 			};
 

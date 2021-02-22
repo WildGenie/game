@@ -11,8 +11,8 @@ namespace Tests.Mocks
 		{
 			var emailOptions = new EmailOptions
 			{
-				EmailFromAddress = "no-reply@crossviewsoftware.io",
-				EmailFromName = "Crossview Software LLC",
+				EmailFromAddress = "no-reply@bastionofshadows.com",
+				EmailFromName = "Bastion of Shadows",
 				SendGridApiKey = "5up3453c43t"
 			};
 			return Options.Create(emailOptions);

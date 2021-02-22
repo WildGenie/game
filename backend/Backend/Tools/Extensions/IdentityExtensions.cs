@@ -16,7 +16,7 @@ namespace Backend.Tools.Extensions
 {
 	public static class IdentityExtensions
 	{
-		public static IServiceCollection AddCrossviewIdentity(this IServiceCollection services, IConfiguration config)
+		public static IServiceCollection AddBastionIdentity(this IServiceCollection services, IConfiguration config)
 		{
 			return services.AddCustomDatabase(config)
 						   .AddCustomIdentity()

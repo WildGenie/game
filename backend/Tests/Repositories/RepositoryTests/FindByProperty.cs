@@ -13,10 +13,10 @@ namespace Tests.Repositories.RepositoryTests
 		{
 			var context = SqliteInMemoryDatabaseFactory.GetNewDb();
 			var repo = new Repository<ApplicationUser, string>(context);
-			var user = await repo.FindByProperty(u => u.Email == "no-reply3@crossviewsoftware.io");
+			var user = await repo.FindByProperty(u => u.Email == "no-reply3@bastionofshadows.com");
 			
 			Assert.NotNull(user);
-			Assert.Equal("crossview3", user.UserName);
+			Assert.Equal("bastion3", user.UserName);
 		}
 
 		[Fact]
@@ -24,7 +24,7 @@ namespace Tests.Repositories.RepositoryTests
 		{
 			var context = SqliteInMemoryDatabaseFactory.GetNewDb(false);
 			var repo = new Repository<ApplicationUser, string>(context);
-			var user = await repo.FindByProperty(u => u.Email == "no-reply@crossviewsoftware.io");
+			var user = await repo.FindByProperty(u => u.Email == "no-reply@bastionofshadows.com");
 			
 			Assert.Null(user);
 		}

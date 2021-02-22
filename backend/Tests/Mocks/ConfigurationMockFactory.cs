@@ -19,9 +19,9 @@ namespace Tests.Mocks
 		{
 			var config = new Mock<IConfiguration>();
 			config.SetupGet(c => c[It.Is<string>(s => s == "Application:Defaults:UserEmail")])
-				  .Returns("no-reply@crossviewsoftware.io");
+				  .Returns("no-reply@bastionofshadows.com");
 			config.SetupGet(c => c[It.Is<string>(s => s == "Application:Defaults:UserName")])
-				  .Returns("crossview");
+				  .Returns("bastion");
 			config.SetupGet(c => c[It.Is<string>(s => s == "Application:Defaults:UserPassword")])
 				  .Returns("Sup345ecu4e!");
 

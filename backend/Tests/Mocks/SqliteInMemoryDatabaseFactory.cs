@@ -37,52 +37,52 @@ namespace Tests.Mocks
 		{
 			context.Users.Add(new ApplicationUser
 			{
-				Email = "no-reply1@crossviewsoftware.io",
+				Email = "no-reply1@bastionofshadows.com",
 				EmailConfirmed = true,
 				Id = "abc1231",
-				UserName = "crossview1",
-				NormalizedEmail = "NO-REPLY1@CROSSVIEWSOFTWARE.IO",
-				NormalizedUserName = "CROSSVIEW1"
+				UserName = "bastion1",
+				NormalizedEmail = "NO-REPLY1@bastionofshadows.com",
+				NormalizedUserName = "BASTION1"
 			});
 			
 			context.Users.Add(new ApplicationUser
 			{
-				Email = "no-reply2@crossviewsoftware.io",
+				Email = "no-reply2@bastionofshadows.com",
 				EmailConfirmed = true,
 				Id = "abc1232",
-				UserName = "crossview2",
-				NormalizedEmail = "NO-REPLY2@CROSSVIEWSOFTWARE.IO",
-				NormalizedUserName = "CROSSVIEW2"
+				UserName = "bastion2",
+				NormalizedEmail = "NO-REPLY2@bastionofshadows.com",
+				NormalizedUserName = "BASTION2"
 			});
 			
 			context.Users.Add(new ApplicationUser
 			{
-				Email = "no-reply3@crossviewsoftware.io",
+				Email = "no-reply3@bastionofshadows.com",
 				EmailConfirmed = true,
 				Id = "abc1233",
-				UserName = "crossview3",
-				NormalizedEmail = "NO-REPLY3@CROSSVIEWSOFTWARE.IO",
-				NormalizedUserName = "CROSSVIEW3"
+				UserName = "bastion3",
+				NormalizedEmail = "NO-REPLY3@bastionofshadows.com",
+				NormalizedUserName = "BASTION3"
 			});
 			
 			context.Users.Add(new ApplicationUser
 			{
-				Email = "no-reply4@crossviewsoftware.io",
+				Email = "no-reply4@bastionofshadows.com",
 				EmailConfirmed = true,
 				Id = "abc1234",
-				UserName = "crossview4",
-				NormalizedEmail = "NO-REPLY4@CROSSVIEWSOFTWARE.IO",
-				NormalizedUserName = "CROSSVIEW4"
+				UserName = "bastion4",
+				NormalizedEmail = "NO-REPLY4@bastionofshadows.com",
+				NormalizedUserName = "BASTION4"
 			});
 			
 			context.Users.Add(new ApplicationUser
 			{
-				Email = "no-reply5@crossviewsoftware.io",
+				Email = "no-reply5@bastionofshadows.com",
 				EmailConfirmed = true,
 				Id = "abc1235",
-				UserName = "crossview5",
-				NormalizedEmail = "NO-REPLY5@CROSSVIEWSOFTWARE.IO",
-				NormalizedUserName = "CROSSVIEW5"
+				UserName = "bastion5",
+				NormalizedEmail = "NO-REPLY5@bastionofshadows.com",
+				NormalizedUserName = "BASTION5"
 			});
 			
 			context.SaveChanges();

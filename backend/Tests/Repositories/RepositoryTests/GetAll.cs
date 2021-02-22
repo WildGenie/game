@@ -16,7 +16,7 @@ namespace Tests.Repositories.RepositoryTests
 			var users = await repo.GetAll();
 
 			Assert.Equal(5, users.Count);
-			Assert.Equal("crossview1", users[0].UserName);
+			Assert.Equal("bastion1", users[0].UserName);
 		}
 
 		[Fact]

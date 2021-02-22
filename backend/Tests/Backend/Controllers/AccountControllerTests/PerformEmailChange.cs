@@ -28,7 +28,7 @@ namespace Tests.Backend.Controllers.AccountControllerTests
 
 			var emailChange = new PerformEmailChangeModel
 			{
-				NewEmail = "no-reply@crossviewsoftware.io",
+				NewEmail = "no-reply@bastionofshadows.com",
 				UserId = "abc123",
 				VerificationCode = "xyz789"
 			};
@@ -52,14 +52,14 @@ namespace Tests.Backend.Controllers.AccountControllerTests
 		{
 			var logger = LoggerMockFactory.DefaultLogger();
 			var options = OptionsMockFactory.ApiBehaviorOptions();
-			var userService = ServiceMockFactory.UserService(pendingEmail: "old@crossviewsoftware.io");
+			var userService = ServiceMockFactory.UserService(pendingEmail: "old@bastionofshadows.com");
 			var signInService = ServiceMockFactory.SignInService();
 			var emailSenderService = ServiceMockFactory.EmailSenderService(EmailSenderService.SendEmailChangeConfirmationEmailSubject);
 			var recaptchaService = ServiceMockFactory.RecaptchaService();
 
 			var emailChange = new PerformEmailChangeModel
 			{
-				NewEmail = "no-reply2@crossviewsoftware.io",
+				NewEmail = "no-reply2@bastionofshadows.com",
 				UserId = "abc123",
 				VerificationCode = "xyz789"
 			};
@@ -83,14 +83,14 @@ namespace Tests.Backend.Controllers.AccountControllerTests
 		{
 			var logger = LoggerMockFactory.DefaultLogger();
 			var options = OptionsMockFactory.ApiBehaviorOptions();
-			var userService = ServiceMockFactory.UserService(pendingEmail: "old@crossviewsoftware.io");
+			var userService = ServiceMockFactory.UserService(pendingEmail: "old@bastionofshadows.com");
 			var signInService = ServiceMockFactory.SignInService();
 			var emailSenderService = ServiceMockFactory.EmailSenderService(EmailSenderService.SendEmailChangeConfirmationEmailSubject);
 			var recaptchaService = ServiceMockFactory.RecaptchaService();
 
 			var emailChange = new PerformEmailChangeModel
 			{
-				NewEmail = "old@crossviewsoftware.io",
+				NewEmail = "old@bastionofshadows.com",
 				UserId = "abc123",
 				VerificationCode = "xyz789"
 			};
@@ -115,14 +115,14 @@ namespace Tests.Backend.Controllers.AccountControllerTests
 		{
 			var logger = LoggerMockFactory.DefaultLogger();
 			var options = OptionsMockFactory.ApiBehaviorOptions();
-			var userService = ServiceMockFactory.UserService(pendingEmail: "old@crossviewsoftware.io");
+			var userService = ServiceMockFactory.UserService(pendingEmail: "old@bastionofshadows.com");
 			var signInService = ServiceMockFactory.SignInService();
 			var emailSenderService = ServiceMockFactory.EmailSenderService(EmailSenderService.SendEmailChangeConfirmationEmailSubject);
 			var recaptchaService = ServiceMockFactory.RecaptchaService();
 
 			var emailChange = new PerformEmailChangeModel
 			{
-				NewEmail = "old@crossviewsoftware.io",
+				NewEmail = "old@bastionofshadows.com",
 				UserId = "something unique",
 				VerificationCode = "xyz789"
 			};
@@ -139,14 +139,14 @@ namespace Tests.Backend.Controllers.AccountControllerTests
 		{
 			var logger = LoggerMockFactory.DefaultLogger();
 			var options = OptionsMockFactory.ApiBehaviorOptions();
-			var userService = ServiceMockFactory.UserService(pendingEmail: "old@crossviewsoftware.io", verificationCodeMatches: false);
+			var userService = ServiceMockFactory.UserService(pendingEmail: "old@bastionofshadows.com", verificationCodeMatches: false);
 			var signInService = ServiceMockFactory.SignInService();
 			var emailSenderService = ServiceMockFactory.EmailSenderService(EmailSenderService.SendEmailChangeConfirmationEmailSubject);
 			var recaptchaService = ServiceMockFactory.RecaptchaService();
 
 			var emailChange = new PerformEmailChangeModel
 			{
-				NewEmail = "old@crossviewsoftware.io",
+				NewEmail = "old@bastionofshadows.com",
 				UserId = "something unique",
 				VerificationCode = "xyz789"
 			};

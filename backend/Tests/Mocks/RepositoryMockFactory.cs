@@ -18,13 +18,13 @@ namespace Tests.Mocks
 			{
 				var user = new ApplicationUser
 				{
-					UserName = "crossview",
+					UserName = "bastion",
 					ConcurrencyStamp = "Don't commit if I'm not the same!",
-					Email = "no-reply@crossviewsoftware.io",
+					Email = "no-reply@bastionofshadows.com",
 					EmailConfirmed = true,
 					Id = "something unique",
-					NormalizedUserName = "CROSSVIEW",
-					NormalizedEmail = "NO-REPLY@CROSSVIEWSOFTWARE.IO",
+					NormalizedUserName = "BASTION",
+					NormalizedEmail = "NO-REPLY@bastionofshadows.com",
 					AccessFailedCount = 0,
 					LockoutEnd = null,
 					PendingEmail = string.Empty

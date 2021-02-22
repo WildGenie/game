@@ -14,23 +14,23 @@ namespace Backend.Tools.Extensions
 {
 	public static class ServiceCollectionExtensions
 	{
-		public static void AddCrossviewServices(this IServiceCollection services, IConfiguration config)
+		public static void AddBastionServices(this IServiceCollection services, IConfiguration config)
 		{
-			services.AddPreRoutingCrossviewServices(config)
-					.AddRoutingCrossviewServices()
-					.AddPostRoutingCrossviewServices()
-					.AddCrossviewOptions(config)
-					.AddCrossviewApplicationServices(config);
+			services.AddPreRoutingBastionServices(config)
+					.AddRoutingBastionServices()
+					.AddPostRoutingBastionServices()
+					.AddBastionOptions(config)
+					.AddBastionApplicationServices(config);
 		}
 
-		public static IServiceCollection AddPreRoutingCrossviewServices(this IServiceCollection services, IConfiguration config)
+		public static IServiceCollection AddPreRoutingBastionServices(this IServiceCollection services, IConfiguration config)
 		{
 			services.AddSingleton(Log.Logger)
-					.AddCrossviewIdentity(config);
+					.AddBastionIdentity(config);
 			return services;
 		}
 
-		public static IServiceCollection AddRoutingCrossviewServices(this IServiceCollection services)
+		public static IServiceCollection AddRoutingBastionServices(this IServiceCollection services)
 		{
 			services.AddRouting()
 					.AddControllers();
@@ -38,7 +38,7 @@ namespace Backend.Tools.Extensions
 			return services;
 		}
 
-		public static IServiceCollection AddPostRoutingCrossviewServices(this IServiceCollection services)
+		public static IServiceCollection AddPostRoutingBastionServices(this IServiceCollection services)
 		{
 			// Changes the invalid model state response
 			// (this must come after services.AddControllers() in order to have any effect)
@@ -50,12 +50,12 @@ namespace Backend.Tools.Extensions
 			return services;
 		}
 
-		public static IServiceCollection AddCrossviewOptions(this IServiceCollection services, IConfiguration config)
+		public static IServiceCollection AddBastionOptions(this IServiceCollection services, IConfiguration config)
 		{
 			return services.Configure<EmailOptions>(config.GetSection("Application:Email"));
 		}
 
-		public static IServiceCollection AddCrossviewApplicationServices(this IServiceCollection services, IConfiguration config)
+		public static IServiceCollection AddBastionApplicationServices(this IServiceCollection services, IConfiguration config)
 		{
 			services.AddTransient<ISendGridClient>(a => new SendGridClient(config["Application:Email:SendGridApiKey"]))
 					.AddScoped<IUserRepository, UserRepository>()

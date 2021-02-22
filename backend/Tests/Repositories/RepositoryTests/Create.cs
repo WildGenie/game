@@ -15,18 +15,18 @@ namespace Tests.Repositories.RepositoryTests
 			var repo = new Repository<ApplicationUser, string>(context);
 			await repo.Create(new ApplicationUser
 			{
-				Email = "no-reply5@crossviewsoftware.io",
+				Email = "no-reply5@bastionofshadows.com",
 				EmailConfirmed = true,
 				Id = "abc1235",
-				UserName = "crossview5",
-				NormalizedEmail = "NO-REPLY5@CROSSVIEWSOFTWARE.IO",
-				NormalizedUserName = "CROSSVIEW5"
+				UserName = "bastion5",
+				NormalizedEmail = "NO-REPLY5@bastionofshadows.com",
+				NormalizedUserName = "BASTION5"
 			});
 
 			var user = await repo.FindById("abc1235");
 			
 			Assert.NotNull(user);
-			Assert.Equal("crossview5", user.UserName);
+			Assert.Equal("bastion5", user.UserName);
 		}
 	}
 }

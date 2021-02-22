@@ -16,7 +16,7 @@ namespace Tests.Repositories.RepositoryTests
 			var user = await repo.FindById("abc1231");
 			
 			Assert.NotNull(user);
-			Assert.Equal("crossview1", user.UserName);
+			Assert.Equal("bastion1", user.UserName);
 		}
 
 		[Fact]

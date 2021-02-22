@@ -25,7 +25,7 @@ namespace Tests.Backend.Controllers.AccountControllerTests
 
 			var forgotPassword = new ForgotPasswordModel
 			{
-				AccountName = "crossview",
+				AccountName = "bastion",
 				RecaptchaToken = "abc123"
 			};
 
@@ -48,7 +48,7 @@ namespace Tests.Backend.Controllers.AccountControllerTests
 
 			var forgotPassword = new ForgotPasswordModel
 			{
-				AccountName = "crossview",
+				AccountName = "bastion",
 				RecaptchaToken = "abc123"
 			};
 
@@ -78,7 +78,7 @@ namespace Tests.Backend.Controllers.AccountControllerTests
 
 			var forgotPassword = new ForgotPasswordModel
 			{
-				AccountName = "crossview",
+				AccountName = "bastion",
 				RecaptchaToken = "abc123"
 			};
 

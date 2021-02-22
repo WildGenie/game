@@ -44,8 +44,8 @@ namespace Tests.Backend.Controllers.AccountControllerTests
 			var user = apiResponse?.Result;
 			
 			Assert.NotNull(user);
-			Assert.Equal("crossview", user.UserName);
-			Assert.Equal("no-reply@crossviewsoftware.io", user.Email);
+			Assert.Equal("bastion", user.UserName);
+			Assert.Equal("no-reply@bastionofshadows.com", user.Email);
 			Assert.Equal("something unique", user.Id);
 		}
 	}

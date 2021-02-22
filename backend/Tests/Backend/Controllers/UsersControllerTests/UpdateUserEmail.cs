@@ -21,8 +21,8 @@ namespace Tests.Backend.Controllers.UsersControllerTests
 			var userChangeEmailModel = new UserChangeEmailModel
 			{
 				UserId = "something unique",
-				Email = "no-reply2@crossviewsoftware.io",
-				ConfirmEmail = "no-reply2@crossviewsoftware.io"
+				Email = "no-reply2@bastionofshadows.com",
+				ConfirmEmail = "no-reply2@bastionofshadows.com"
 			};
 			
 			var controller = new UsersController(userRepo.Object, userService.Object, emailService.Object, roleManager.Object);
@@ -43,8 +43,8 @@ namespace Tests.Backend.Controllers.UsersControllerTests
 			var userChangeEmailModel = new UserChangeEmailModel
 			{
 				UserId = "something unique",
-				Email = "no-reply2@crossviewsoftware.io",
-				ConfirmEmail = "no-reply2@crossviewsoftware.io"
+				Email = "no-reply2@bastionofshadows.com",
+				ConfirmEmail = "no-reply2@bastionofshadows.com"
 			};
 			
 			var controller = new UsersController(userRepo.Object, userService.Object, emailService.Object, roleManager.Object);

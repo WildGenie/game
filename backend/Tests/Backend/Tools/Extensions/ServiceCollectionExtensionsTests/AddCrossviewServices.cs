@@ -17,10 +17,10 @@ using Xunit;
 
 namespace Tests.Backend.Tools.Extensions.ServiceCollectionExtensionsTests
 {
-	public class AddCrossviewServices
+	public class AddBastionServices
 	{
 		[Fact]
-		public void CallsAddPreRoutingCrossviewServices()
+		public void CallsAddPreRoutingBastionServices()
 		{
 			var config = new ConfigurationBuilder()
 						 .AddJsonFile("appsettings.json")
@@ -28,7 +28,7 @@ namespace Tests.Backend.Tools.Extensions.ServiceCollectionExtensionsTests
 			var services = new ServiceCollection();
 			var target = new Startup(config);
 			target.ConfigureServices(services);
-			services.AddCrossviewServices(config);
+			services.AddBastionServices(config);
 			var container = services.BuildServiceProvider();
 
 			var logger = container.GetService<ILogger>();
@@ -36,7 +36,7 @@ namespace Tests.Backend.Tools.Extensions.ServiceCollectionExtensionsTests
 		}
 		
 		[Fact]
-		public void CallsAddRoutingCrossviewServices()
+		public void CallsAddRoutingBastionServices()
 		{
 			var config = new ConfigurationBuilder()
 						 .AddJsonFile("appsettings.json")
@@ -44,7 +44,7 @@ namespace Tests.Backend.Tools.Extensions.ServiceCollectionExtensionsTests
 			var services = new ServiceCollection();
 			var target = new Startup(config);
 			target.ConfigureServices(services);
-			services.AddCrossviewServices(config);
+			services.AddBastionServices(config);
 			var container = services.BuildServiceProvider();
 
 			// Test AddRouting()
@@ -57,7 +57,7 @@ namespace Tests.Backend.Tools.Extensions.ServiceCollectionExtensionsTests
 		}
 		
 		[Fact]
-		public void CallsAddPostRoutingCrossviewServices()
+		public void CallsAddPostRoutingBastionServices()
 		{
 			var config = new ConfigurationBuilder()
 						 .AddJsonFile("appsettings.json")
@@ -65,7 +65,7 @@ namespace Tests.Backend.Tools.Extensions.ServiceCollectionExtensionsTests
 			var services = new ServiceCollection();
 			var target = new Startup(config);
 			target.ConfigureServices(services);
-			services.AddCrossviewServices(config);
+			services.AddBastionServices(config);
 			var container = services.BuildServiceProvider();
 
 			var options = container.GetService<IOptions<ApiBehaviorOptions>>();
@@ -79,7 +79,7 @@ namespace Tests.Backend.Tools.Extensions.ServiceCollectionExtensionsTests
 		}
 		
 		[Fact]
-		public void CallsAddCrossviewOptions()
+		public void CallsAddBastionOptions()
 		{
 			var config = new ConfigurationBuilder()
 						 .AddJsonFile("appsettings.json")
@@ -87,7 +87,7 @@ namespace Tests.Backend.Tools.Extensions.ServiceCollectionExtensionsTests
 			var services = new ServiceCollection();
 			var target = new Startup(config);
 			target.ConfigureServices(services);
-			services.AddCrossviewServices(config);
+			services.AddBastionServices(config);
 			var container = services.BuildServiceProvider();
 
 			var options = container.GetService<IOptions<EmailOptions>>();
@@ -95,7 +95,7 @@ namespace Tests.Backend.Tools.Extensions.ServiceCollectionExtensionsTests
 		}
 		
 		[Fact]
-		public void CallsAddCrossviewApplicationServices()
+		public void CallsAddBastionApplicationServices()
 		{
 			var config = new ConfigurationBuilder()
 						 .AddJsonFile("appsettings.json")
@@ -103,7 +103,7 @@ namespace Tests.Backend.Tools.Extensions.ServiceCollectionExtensionsTests
 			var services = new ServiceCollection();
 			var target = new Startup(config);
 			target.ConfigureServices(services);
-			services.AddCrossviewServices(config);
+			services.AddBastionServices(config);
 			services.AddSingleton<IConfiguration>(config);
 			var container = services.BuildServiceProvider();
 

@@ -11,8 +11,8 @@ namespace Tests.Services.EmailSenderServiceTests
 		[Fact]
 		public async Task SendsEmail()
 		{
-			const string username = "crossview";
-			const string email = "no-reply@crossviewsoftware.io";
+			const string username = "bastion";
+			const string email = "no-reply@bastionofshadows.com";
 			const string userId = "abc123";
 			const string verificationCode = "xyz789";
 			

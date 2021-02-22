@@ -16,12 +16,12 @@ namespace Tests.Repositories.RepositoryTests
 			var result1 = await repo.GetPagified(1, 2);
 			
 			Assert.Equal(2, result1.Count);
-			Assert.Equal("crossview2", result1[1].UserName);
+			Assert.Equal("bastion2", result1[1].UserName);
 
 			var result2 = await repo.GetPagified(2, 2);
 			
 			Assert.Equal(2, result2.Count);
-			Assert.Equal("crossview4", result2[1].UserName);
+			Assert.Equal("bastion4", result2[1].UserName);
 		}
 
 		[Fact]
@@ -32,7 +32,7 @@ namespace Tests.Repositories.RepositoryTests
 			var result = await repo.GetPagified(1, 2, u => u.UserName.EndsWith("3"));
 			
 			Assert.Single(result);
-			Assert.Equal("crossview3", result[0].UserName);
+			Assert.Equal("bastion3", result[0].UserName);
 		}
 	}
 }

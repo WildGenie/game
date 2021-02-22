@@ -14,14 +14,14 @@ namespace Tests.Backend.Tools.ApiResponseTests
 		{
 			var errors = new List<IdentityError>
 			{
-				_describer.DuplicateEmail("no-reply@crossviewsoftware.io")
+				_describer.DuplicateEmail("no-reply@bastionofshadows.com")
 			};
 
 			var response = new ApiResponse(errors);
 
 			Assert.Contains("Email", response.Errors.Keys);
 			Assert.Single(response.Errors["Email"]);
-			Assert.Equal("Email 'no-reply@crossviewsoftware.io' is already taken.", response.Errors["Email"][0]);
+			Assert.Equal("Email 'no-reply@bastionofshadows.com' is already taken.", response.Errors["Email"][0]);
 		}
 
 		[Fact]
@@ -29,14 +29,14 @@ namespace Tests.Backend.Tools.ApiResponseTests
 		{
 			var errors = new List<IdentityError>
 			{
-				_describer.InvalidUserName("crossview")
+				_describer.InvalidUserName("bastion")
 			};
 			
 			var response = new ApiResponse(errors);
 
 			Assert.Contains("UserName", response.Errors.Keys);
 			Assert.Single(response.Errors["UserName"]);
-			Assert.Equal("User name 'crossview' is invalid, can only contain letters or digits.", response.Errors["UserName"][0]);
+			Assert.Equal("User name 'bastion' is invalid, can only contain letters or digits.", response.Errors["UserName"][0]);
 		}
 		
 		[Fact]
@@ -59,14 +59,14 @@ namespace Tests.Backend.Tools.ApiResponseTests
 		{
 			var errors = new List<IdentityError>
 			{
-				_describer.InvalidRoleName("crossview")
+				_describer.InvalidRoleName("bastion")
 			};
 			
 			var response = new ApiResponse(errors);
 
 			Assert.Contains("RoleName", response.Errors.Keys);
 			Assert.Single(response.Errors["RoleName"]);
-			Assert.Equal("Role name 'crossview' is invalid.", response.Errors["RoleName"][0]);
+			Assert.Equal("Role name 'bastion' is invalid.", response.Errors["RoleName"][0]);
 		}
 		
 		[Fact]
