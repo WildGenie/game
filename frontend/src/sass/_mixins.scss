@@ -1,0 +1,60 @@
+@import "variables";
+
+@mixin make-button($main-color: $primary, $alt-color: $white) {
+	display: block;
+	width: 100%;
+	margin-bottom: $spacer-1;
+	padding: $spacer-2;
+	border: 1px solid $main-color;
+	border-radius: $border-radius;
+	background-color: transparent;
+	cursor: pointer;
+	color: $main-color;
+	text-align: center;
+	transition: background-color $standard-timing, color $standard-timing;
+
+	&:hover {
+		background-color: $main-color;
+		color: $alt-color;
+		text-decoration: none;
+		box-shadow: $standard-shadow;
+	}
+}
+@mixin make-button-solid($main-color: $primary, $alt-color: $white) {
+	background-color: $main-color;
+	color: $alt-color;
+
+	&:hover {
+		background-color: transparent;
+		color: $main-color;
+	}
+}
+
+@mixin make-container {
+	width: 100%;
+	margin: 0 auto;
+}
+
+@mixin make-sm-container {
+	@include make-container;
+	max-width: 20rem;
+}
+
+@mixin make-md-container {
+	@include make-container;
+	max-width: 30rem;
+}
+
+@mixin make-lg-container {
+	@include make-container;
+	max-width: 40rem;
+}
+
+@mixin make-xl-container {
+	@include make-container;
+	max-width: 50rem;
+}
+
+@mixin make-padded-widget {
+	padding: $spacer-3;
+}

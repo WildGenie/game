@@ -1,0 +1,7 @@
+# Node stuff
+node_modules
+
+# Build
+build
+!webpack.config.js
+*.js

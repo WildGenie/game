@@ -1,0 +1,25 @@
+{
+	"compilerOptions": {
+		"module": "es6",
+		"target": "esnext",
+		"sourceMap": true,
+		"moduleResolution": "node",
+		"jsx": "react",
+		"baseUrl": "./src",
+		"paths": {
+			"@/*": [
+				"*"
+			]
+		}
+	},
+	"include": [
+		"src/**/*.ts",
+		"src/**/*.tsx",
+		"./definitions.d.ts"
+	],
+	"exclude": [
+		"node_modules",
+		"src/**/*.spec.ts",
+		"src/**/*.spec.tsx"
+	]
+}

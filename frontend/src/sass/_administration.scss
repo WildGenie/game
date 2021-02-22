@@ -1,0 +1,64 @@
+@import "imports";
+
+.admin {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+}
+
+.admin__nav-wrapper {
+	order: 2;
+	@include make-padded-widget;
+}
+
+.admin__nav {
+	list-style: none;
+	padding-left: 0;
+	margin: 0;
+}
+
+.admin__nav-toggle {
+	width: 3rem;
+	height: 3rem;
+	margin-left: 0;
+	margin-right: auto;
+}
+
+.admin__back-link-icon {
+	padding-right: $spacer-1;
+}
+
+.admin__nav-item {
+	padding: $spacer-1 $spacer-1 $spacer-1 0;
+}
+
+.admin__nav-link {
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+
+.admin__content {
+	order: 1;
+	@include make-padded-widget;
+}
+
+@media (min-width: $breakpoint-sm) {
+	.admin {
+		flex-direction: row;
+	}
+
+	.admin__nav-wrapper {
+		order: 1;
+		width: 35%;
+	}
+
+	.admin__nav {
+		text-align: right;
+	}
+
+	.admin__content {
+		order: 2;
+		width: 65%;
+	}
+}

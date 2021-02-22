@@ -1,0 +1,165 @@
+// Colors
+// These come from Material Design
+// Colors used are in format:
+// {color}: {color}-500
+// dark-{color}: {color}-900
+// light-{color}: {color}-100
+// Gray breaks from this pattern
+// light-gray is gray-300
+// because gray-100 is too light for good contrast
+$red: #F44336;
+$dark-red: #B71C1C;
+$light-red: #FFCDD2;
+
+$pink: #E91E63;
+$dark-pink: #880E4F;
+$light-pink: #F8BBD0;
+
+$purple: #4527A0;
+$dark-purple: #4A148C;
+$light-purple: #CFCFFA;
+
+$deep-purple: #673AB7;
+$dark-deep-purple: #311B92;
+$light-deep-purple: #D1C4E9;
+
+$indigo: #3F51B5;
+$dark-indigo: #1A237E;
+$light-indigo: #C5CAE9;
+
+$blue: #2196F3;
+$dark-blue: #0D47A1;
+$light-blue: #E3F2FD;
+
+$light-blue: #03A9F4;
+$dark-light-blue: #01579B;
+$light-light-blue: #B3E5FC;
+
+$cyan: #00BCD4;
+$dark-cyan: #006064;
+$light-cyan: #B2EBF2;
+
+$teal: #009688;
+$dark-teal: #004D40;
+$light-teal: #B2DFDB;
+
+$green: #4CAF50;
+$dark-green: #1B5E20;
+$light-green: #C8E6C9;
+
+$light-green: #8BC34A;
+$dark-light-green: #33691E;
+$light-light-green: #DCEDC8;
+
+$yellow: #FFEB3B;
+$dark-yellow: #F57F17;
+$light-yellow: #FFF9C4;
+
+$orange: #FF9800;
+$dark-orange: #E65100;
+$light-orange: #FFE0B2;
+
+$gray: #9E9E9E;
+$dark-gray: #212121;
+$light-gray: #E0E0E0;
+
+$white: #FFFFFF;
+$black: $dark-gray;
+
+
+// Theme
+$primary: $purple;
+$primary-light: $light-purple;
+
+$secondary: $green;
+$secondary-light: $light-green;
+
+$success: $blue;
+$success-light: $light-blue;
+
+$info: $pink;
+$info-light: $light-pink;
+
+$warning: $red;
+$warning-light: $light-red;
+
+
+// Spacing
+$spacer: 1rem;
+$nav-height: 4rem;
+
+$spacer-1: $spacer * 0.5;
+$spacer-2: $spacer;
+$spacer-3: $spacer * 1.5;
+$spacer-4: $spacer * 2.5;
+$spacer-5: $spacer * 4;
+
+$gutter: $spacer-4;
+
+$breakpoint-sm: 575.98px;
+$breakpoint-md: 767.98px;
+$breakpoint-lg: 991.98px;
+$breakpoint-xl: 1199.98px;
+$breakpoint-xxl: 1399.98px;
+
+
+// Links
+$link-color: $primary;
+$link-decoration: none;
+$link-hover-color: $primary-light;
+$link-hover-decoration: underline;
+
+
+// Typography
+$font-family-sans-serif: Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-family-monospace: "Roboto Mono", monospace;
+$font-family-serif: "Open Sans", "Helvetica Neue", Arial, sans-serif;
+$font-family-base: $font-family-serif;
+$font-size-px: 20px;
+$font-size-base: 1rem;
+$font-size-lg: 1.25rem;
+$font-size-sm: 0.75rem;
+$font-size-xs: 0.5rem;
+$font-weight-normal: 400;
+$font-weight-light: 300;
+$font-weight-bold: 700;
+$font-weight-base: $font-weight-normal;
+$line-height-base: 1.5rem;
+$h1-font-size: 2rem;
+$h2-font-size: 1.75rem;
+$h3-font-size: 1.5rem;
+$h4-font-size: 1.25rem;
+$h5-font-size: 1.1rem;
+$h6-font-size: 1rem;
+$headings-margin-bottom: $spacer-4;
+$headings-font-family: $font-family-sans-serif;
+$headings-font-weight: 400;
+$headings-line-height: 2.2rem;
+$headings-color: inherit;
+$word-break: break-word;
+
+
+// Borders
+$border-radius: 3px;
+$border: 1px solid;
+
+
+// Elevation
+$zindex-dropdown: 1000;
+$zindex-sticky: 1020;
+$zindex-fixed: 1030;
+$zindex-modal-backdrop: 1040;
+$zindex-modal: 1050;
+$zindex-popover: 1060;
+$zindex-tooltip: 1070;
+
+
+// Forms
+$form-input-height: 1.5rem;
+
+// Animations
+$standard-timing: 0.3s ease-out;
+
+// Shadows
+
+$standard-shadow: 0 3px 5px 5px lighten($gray, 30%);

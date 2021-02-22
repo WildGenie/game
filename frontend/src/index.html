@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<meta
+		http-equiv="X-UA-Compatible"
+		content="IE=edge"
+	/>
+	<meta
+		name="viewport"
+		content="width=device-width,initial-scale=1.0"
+	/>
+
+	<!-- Recaptcha -->
+	<script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
+
+	<!-- Google Fonts -->
+	<link
+		rel="preconnect"
+		href="https://fonts.gstatic.com"
+	>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap"
+		rel="stylesheet"
+	>
+
+	<!-- FontAwesome -->
+	<link
+		rel="stylesheet"
+		type="text/css"
+		href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+	/>
+
+	<% for (var css in htmlWebpackPlugin.files.css) { %>
+	<link
+		href="<%= htmlWebpackPlugin.files.css[css] %>"
+		rel="stylesheet"
+		type="text/css"
+	/>
+	<% } %>
+
+	<% for (var js in htmlWebpackPlugin.files.js) { %>
+	<script
+		src="<%= htmlWebpackPlugin.files.js[js] %>"
+		async
+		defer
+	></script>
+	<% } %>
+
+	<title>Website Title</title>
+</head>
+<body>
+<noscript>This site requires Javascript to run. Please enable Javascript and reload the page.</noscript>
+<div id="root"></div>
+</body>
+</html>

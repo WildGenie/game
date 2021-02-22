@@ -1,0 +1,18 @@
+{
+	"presets": [
+		[
+			"@babel/env",
+			{
+				"targets": {
+					"browsers": "defaults"
+				}
+			}
+		],
+		[
+			"@babel/preset-react"
+		],
+		[
+			"@babel/preset-typescript"
+		]
+	]
+}

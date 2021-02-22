@@ -1,0 +1,53 @@
+@import "../sass/imports";
+
+.app {
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.app__nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: $zindex-fixed;
+}
+
+.app__body {
+	padding-top: $nav-height;
+	flex-grow: 1;
+}
+
+.app__message-container {
+	@include make-sm-container;
+	@include make-padded-widget;
+}
+
+.app__helpful-text {
+	//font-style: italic;
+	font-size: $font-size-sm;
+}
+
+.app__widget {
+	&.app__widget--parent {
+		@include make-padded-widget;
+	}
+	&.app__widget--sm {
+		@include make-sm-container;
+	}
+
+	&.app__widget--md {
+		@include make-md-container;
+	}
+
+	&.app__widget--lg {
+		@include make-lg-container;
+	}
+
+	&.app__widget--xl {
+		@include make-xl-container;
+	}
+}

@@ -1,0 +1,77 @@
+@import "imports";
+
+html {
+	color: $black;
+	font-family: $font-family-base;
+	font-size: $font-size-px;
+	font-weight: $font-weight-base;
+	background: $white;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+html, body, #root {
+	width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $headings-font-family;
+	font-weight: $headings-font-weight;
+	color: $headings-color;
+	line-height: $headings-line-height;
+	margin-bottom: $headings-margin-bottom;
+}
+
+h1 {
+	font-size: $h1-font-size;
+}
+
+h2 {
+	font-size: $h2-font-size;
+}
+
+h3 {
+	font-size: $h3-font-size;
+}
+
+h4 {
+	font-size: $h4-font-size;
+}
+
+h5 {
+	font-size: $h5-font-size;
+}
+
+h6 {
+	font-size: $h6-font-size;
+}
+
+button {
+	@include make-button;
+}
+
+a, a:visited {
+	color: $link-color;
+	text-decoration: $link-decoration;
+
+	&:hover {
+		color: $link-hover-color;
+		text-decoration: $link-hover-decoration;
+	}
+}
+
+.sr-only {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 1px;
+	height: 1px;
+	background: none;
+	z-index: -9999;
+	overflow: hidden;
+}

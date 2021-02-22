@@ -1,0 +1,25 @@
+@import "/src/sass/imports";
+
+.pagination {
+	margin-top: $spacer-2;
+}
+
+.pagination__nav {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.pagination__nav-button {
+	width: 3rem;
+	padding-left: 0;
+	padding-right: 0;
+	border: none;
+	background: none;
+
+	&:hover {
+		background: none;
+		box-shadow: none;
+		color: $primary-light;
+	}
+}

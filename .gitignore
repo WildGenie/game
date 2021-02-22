@@ -1,0 +1,6 @@
+# IDEs
+.idea
+*.DotSettings.user
+.vs
+.vscode
+
