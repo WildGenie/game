@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Core;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
@@ -84,6 +85,14 @@ namespace Backend.Tools
 						.Add(error.ErrorMessage);
 				}
 			}
+		}
+
+		public ApiResponse(ServiceResult error)
+		{
+			Errors = new Dictionary<string, IList<string>>
+			{
+				{"General", new List<string> {error.Message}}
+			};
 		}
 	}
 
