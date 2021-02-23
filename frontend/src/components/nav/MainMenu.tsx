@@ -55,11 +55,13 @@ const MainMenu: React.FunctionComponent = (): JSX.Element => {
 		>
 			<div className="main-menu__mobile-wrapper">
 				<div className="main-menu__logo-wrapper">
-					<img
-						className="main-menu__logo"
-						src={Logo}
-						alt="Company logo"
-					/>
+					<NavLink to="/">
+						<img
+							className="main-menu__logo"
+							src={Logo}
+							alt="Company logo"
+						/>
+					</NavLink>
 				</div>
 
 				<button

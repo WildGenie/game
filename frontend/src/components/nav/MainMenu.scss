@@ -1,13 +1,13 @@
 @import "/src/sass/imports";
 
-$nav-bg: $primary;
+$nav-bg: $dark-gray;
 $padding-right: $spacer-2;
 
 .main-menu {
 	display: flex;
 	flex-direction: column;
 	height: $nav-height;
-	background: $primary;
+	background: $nav-bg;
 	color: $white;
 }
 
@@ -35,6 +35,7 @@ $padding-right: $spacer-2;
 
 	&:hover {
 		box-shadow: none;
+		background: $nav-bg;
 	}
 
 	&:focus {
