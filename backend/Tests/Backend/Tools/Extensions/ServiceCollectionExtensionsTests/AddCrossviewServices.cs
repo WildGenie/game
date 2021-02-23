@@ -9,9 +9,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Repositories;
+using Repositories.Characters;
 using SendGrid;
 using Serilog;
 using Services;
+using Services.Characters;
 using Services.Google;
 using Xunit;
 
@@ -112,6 +114,12 @@ namespace Tests.Backend.Tools.Extensions.ServiceCollectionExtensionsTests
 
 			var userRepo = container.GetService<IUserRepository>();
 			Assert.NotNull(userRepo);
+
+			var speciesRepo = container.GetService<ISpeciesRepository>();
+			Assert.NotNull(speciesRepo);
+
+			var speciesService = container.GetService<ISpeciesService>();
+			Assert.NotNull(speciesService);
 
 			var emailSenderService = container.GetService<IEmailSenderService>();
 			Assert.NotNull(emailSenderService);

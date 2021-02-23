@@ -19,6 +19,12 @@ export type InputProps<T> = {
 	type?: string
 }
 
+export type NumberInputProps = {
+	step?: number,
+	min?: number,
+	max?: number
+}
+
 export type ValidatableProps = {
 	errors?: string[],
 	validator?: OnSubmitValidator

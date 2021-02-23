@@ -1,9 +1,11 @@
 using System.Diagnostics.CodeAnalysis;
 using Core.DataModels;
+using Core.DataModels.Characters;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Repositories.Configurations;
+using Repositories.Configurations.Characters;
 
 namespace Repositories
 {
@@ -21,6 +23,9 @@ namespace Repositories
 			modelBuilder.ApplyConfiguration(new UserConfiguration());
 			modelBuilder.ApplyConfiguration(new RoleConfiguration());
 			modelBuilder.ApplyConfiguration(new UserRoleConfiguration());
+			modelBuilder.ApplyConfiguration(new SpeciesConfiguration());
 		}
+		
+		public DbSet<Species> Species { get; set; }
 	}
 }

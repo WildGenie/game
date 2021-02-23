@@ -4,9 +4,13 @@ using System.Net.Http;
 using System.Security.Claims;
 using Core;
 using Core.DataModels;
+using Core.DataModels.Characters;
+using Core.ViewModels.Characters.Species;
 using Microsoft.AspNetCore.Identity;
 using Moq;
+using Repositories.Characters;
 using Services;
+using Services.Characters;
 using Services.Google;
 using Services.Identity;
 
@@ -255,6 +259,58 @@ namespace Tests.Mocks
 			var config = ConfigurationMockFactory.RecaptchaSecretKeyConfiguration()
 												 .Object;
 			return new RecaptchaService(client, logger, config);
+		}
+
+		public static Mock<ISpeciesService> SpeciesService(bool successful = true)
+		{
+			var mock = new Mock<ISpeciesService>();
+
+			var getSpecies = mock.Setup(s => s.GetSpecies(It.IsAny<int>()));
+			var addSpecies = mock.Setup(s => s.AddSpecies(It.IsAny<AddSpeciesModel>()));
+			var editSpecies = mock.Setup(s => s.EditSpecies(It.IsAny<EditSpeciesModel>()));
+
+			if (successful)
+			{
+				getSpecies.ReturnsAsync(new Species
+				{
+					Id = 1,
+					Name = "Human",
+					PluralName = "Humans",
+					Description = "Humans are good and cool",
+					ForceSensitive = true,
+					HpCoefficient = 10.0f
+				});
+				addSpecies.ReturnsAsync(ServiceResult.Success);
+				editSpecies.ReturnsAsync(ServiceResult.Success);
+			}
+			else
+			{
+				addSpecies.ReturnsAsync(new ServiceResult("Mock this bad service result"));
+				editSpecies.ReturnsAsync(new ServiceResult("Mock this bad service result"));
+			}
+
+			mock.Setup(s => s.GetSpecies())
+				.ReturnsAsync(new List<Species>
+				{
+					new Species
+					{
+						Id = 1,
+						Name = "Human",
+						PluralName = "Humans",
+						Description = "Humans are good and cool",
+						HpCoefficient = 10.0f,
+						ForceSensitive = true,
+						AwarenessModifier = 0,
+						CharismaModifier = 0,
+						ConstitutionModifier = 0,
+						DexterityModifier = 0,
+						IntelligenceModifier = 0,
+						StrengthModifier = 0,
+						WisdomModifier = 0
+					}
+				});
+
+			return mock;
 		}
 	}
 }

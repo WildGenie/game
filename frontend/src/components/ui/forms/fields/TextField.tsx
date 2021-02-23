@@ -8,13 +8,14 @@ import FormElement from "@/components/ui/forms/FormElement"
 import FormLabel from "@/components/ui/forms/FormLabel"
 import TextInput from "@/components/ui/forms/inputs/TextInput"
 import Hint from "@/components/ui/forms/Hint"
-import { ElementClassProps, HintClassProps, InputClassProps, InputProps, InputStateProps, LabelClassProps, LabelProps, ValidatableProps } from "@/components/ui/forms/Types"
+import { ElementClassProps, HintClassProps, InputClassProps, InputProps, InputStateProps, LabelClassProps, LabelProps, NumberInputProps, ValidatableProps } from "@/components/ui/forms/Types"
 
 type TextFieldTypes = {
 	hint?: string
 }
 	& LabelProps
-	& InputProps<string>
+	& InputProps<string|number>
+	& NumberInputProps
 	& ValidatableProps
 	& InputStateProps
 	& ElementClassProps
@@ -32,6 +33,9 @@ const TextField = ({
 	validator = null,
 	hint = "",
 	required = false,
+	step,
+	min,
+	max,
 	elementWrapperClasses = "",
 	labelWrapperClasses = "",
 	labelClasses = "",
@@ -55,7 +59,7 @@ const TextField = ({
 
 	// Computing classes
 
-	const labelComputedClasses = `${labelClasses} ${focused ? "form__label--focused" : ""} ${!value && !focused ? "form__label--empty" : ""}`
+	const labelComputedClasses = `${labelClasses} ${focused ? "form__label--focused" : ""} ${type !== "number" && !value && !focused ? "form__label--empty" : ""}`
 
 	return (
 		<FormElement
@@ -80,6 +84,9 @@ const TextField = ({
 				focused={focused}
 				setFocused={setFocused}
 				type={type}
+				step={step}
+				min={min}
+				max={max}
 				inputClasses={inputClasses}
 				inputWrapperClasses={inputWrapperClasses}
 			/>

@@ -10,6 +10,10 @@ const navLinks: NavDestination[] = [
 	{
 		href: "/admin/users",
 		name: "Users"
+	},
+	{
+		href: "/admin/species",
+		name: "Species"
 	}
 ]
 

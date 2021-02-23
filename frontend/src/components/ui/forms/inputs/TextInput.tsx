@@ -1,7 +1,7 @@
 import * as React from "react"
-import { InputClassProps, InputProps, InputStateProps } from "@/components/ui/forms/Types"
+import { InputClassProps, InputProps, InputStateProps, NumberInputProps } from "@/components/ui/forms/Types"
 
-type TextInputProps = InputProps<string> & InputStateProps & InputClassProps
+type TextInputProps = InputProps<string|number> & InputStateProps & InputClassProps & NumberInputProps
 
 const TextInput: React.FunctionComponent<TextInputProps> = ({
 	name,
@@ -12,6 +12,9 @@ const TextInput: React.FunctionComponent<TextInputProps> = ({
 	hasErrors = false,
 	required = false,
 	type = "text",
+	step = 1,
+	min = Number.MIN_SAFE_INTEGER,
+	max = Number.MAX_SAFE_INTEGER,
 	inputClasses = "",
 	inputWrapperClasses = ""
 }: TextInputProps): JSX.Element => {
@@ -22,15 +25,31 @@ const TextInput: React.FunctionComponent<TextInputProps> = ({
 
 	return (
 		<div className={inputWrapperComputedClasses}>
-			<input
-				id={name}
-				className={inputComputedClasses}
-				type={type}
-				value={value}
-				onFocus={() => setFocused && setFocused(true)}
-				onBlur={() => setFocused && setFocused(false)}
-				onChange={e => setValue(e.target.value)}
-			/>
+			{type === "number" && (
+				<input
+					id={name}
+					className={inputComputedClasses}
+					type={type}
+					value={value}
+					step={step}
+					min={min}
+					max={max}
+					onFocus={() => setFocused && setFocused(true)}
+					onBlur={() => setFocused && setFocused(false)}
+					onChange={e => setValue(e.target.value)}
+				/>
+			)}
+			{type !== "number" && (
+				<input
+					id={name}
+					className={inputComputedClasses}
+					type={type}
+					value={value}
+					onFocus={() => setFocused && setFocused(true)}
+					onBlur={() => setFocused && setFocused(false)}
+					onChange={e => setValue(e.target.value)}
+				/>
+			)}
 		</div>
 	)
 }

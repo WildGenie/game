@@ -7,6 +7,7 @@ import { Roles } from "@/tools/definitions/general"
 import Home from "@/site/admin/Home"
 import UsersList from "@/site/admin/users/UsersList"
 import Users from "@/site/admin/users/Users"
+import Species from "@/site/admin/species/Species"
 
 const Admin: React.FunctionComponent = (): JSX.Element => {
 
@@ -29,6 +30,9 @@ const Admin: React.FunctionComponent = (): JSX.Element => {
 				</Route>
 				<Route path={`${path}/users/:userId`}>
 					<Users/>
+				</Route>
+				<Route path={`${path}/species`}>
+					<Species />
 				</Route>
 			</Switch>
 		</Protected>
