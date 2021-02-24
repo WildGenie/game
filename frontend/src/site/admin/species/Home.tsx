@@ -10,6 +10,7 @@ import TableBody from "@/components/ui/tables/TableBody"
 import BodyCell from "@/components/ui/tables/BodyCell"
 import { SpeciesModel } from "@/tools/definitions/species"
 import { getSpecies } from "@/tools/browser/species"
+import { getDocumentTitle } from "@/tools/utils"
 
 const Home: React.FunctionComponent = (): JSX.Element => {
 
@@ -26,6 +27,8 @@ const Home: React.FunctionComponent = (): JSX.Element => {
 	useEffect(() => {
 		fetchSpecies()
 	}, [])
+
+	document.title = getDocumentTitle("Species")
 
 	return (
 		<Table>

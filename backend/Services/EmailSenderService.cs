@@ -18,13 +18,15 @@ namespace Services
 		private readonly IOptions<EmailOptions> _options;
 		private readonly ISendGridClient _client;
 		private readonly EmailAddress _from;
+		private readonly EmailMessages _emailMessages;
 
-		public EmailSenderService(ILogger logger, IOptions<EmailOptions> options, ISendGridClient client)
+		public EmailSenderService(ILogger logger, IOptions<EmailOptions> options, ISendGridClient client, EmailMessages emailMessages)
 		{
 			_logger = logger;
 			_options = options;
 			_client = client;
 			_from = new EmailAddress(_options.Value.EmailFromAddress, _options.Value.EmailFromName);
+			_emailMessages = emailMessages;
 
 			_logger.Information($"Created EmailSenderService instance");
 		}
@@ -35,8 +37,8 @@ namespace Services
 			{
 				From = new EmailAddress(_options.Value.EmailFromAddress, _options.Value.EmailFromName),
 				Subject = SendWelcomeEmailSubject,
-				PlainTextContent = EmailMessages.WelcomeEmailText(username, userId, verificationCode),
-				HtmlContent = EmailMessages.WelcomeEmailHtml(username, userId, verificationCode)
+				PlainTextContent = _emailMessages.WelcomeEmailText(username, userId, verificationCode),
+				HtmlContent = _emailMessages.WelcomeEmailHtml(username, userId, verificationCode)
 			};
 			message.AddTo(email, username);
 
@@ -49,8 +51,8 @@ namespace Services
 			{
 				From = new EmailAddress(_options.Value.EmailFromAddress, _options.Value.EmailFromName),
 				Subject = SendEmailChangeConfirmationEmailSubject,
-				PlainTextContent = EmailMessages.ChangeEmailText(username, email, userId, verificationCode),
-				HtmlContent = EmailMessages.ChangeEmailHtml(username, email, userId, verificationCode)
+				PlainTextContent = _emailMessages.ChangeEmailText(username, email, userId, verificationCode),
+				HtmlContent = _emailMessages.ChangeEmailHtml(username, email, userId, verificationCode)
 			};
 			message.AddTo(email, username);
 
@@ -62,8 +64,8 @@ namespace Services
 			var message = new SendGridMessage
 			{
 				Subject = SendPasswordResetEmailSubject,
-				PlainTextContent = EmailMessages.ResetPasswordText(username, userId, verificationCode),
-				HtmlContent = EmailMessages.ResetPasswordHtml(username, userId, verificationCode)
+				PlainTextContent = _emailMessages.ResetPasswordText(username, userId, verificationCode),
+				HtmlContent = _emailMessages.ResetPasswordHtml(username, userId, verificationCode)
 			};
 			message.AddTo(email, username);
 

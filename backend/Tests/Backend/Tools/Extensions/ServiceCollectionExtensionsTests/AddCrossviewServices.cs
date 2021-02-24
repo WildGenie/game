@@ -1,6 +1,7 @@
 using System.Net.Http;
 using Backend;
 using Backend.Tools.Extensions;
+using Core;
 using Core.Options;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Cors;
@@ -111,6 +112,9 @@ namespace Tests.Backend.Tools.Extensions.ServiceCollectionExtensionsTests
 
 			var sendGridClient = container.GetService<ISendGridClient>();
 			Assert.NotNull(sendGridClient);
+
+			var emailMessages = container.GetService<EmailMessages>();
+			Assert.NotNull(emailMessages);
 
 			var userRepo = container.GetService<IUserRepository>();
 			Assert.NotNull(userRepo);

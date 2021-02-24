@@ -5,6 +5,7 @@ import { required } from "@/tools/validations"
 import TextField from "@/components/ui/forms/fields/TextField"
 import { useState } from "react"
 import { forgotPassword } from "@/tools/browser/users"
+import { getDocumentTitle } from "@/tools/utils"
 
 const ForgotPassword: React.FunctionComponent = (): JSX.Element => {
 	const [wasSuccessful, setWasSuccessful] = useState(false)
@@ -31,6 +32,8 @@ const ForgotPassword: React.FunctionComponent = (): JSX.Element => {
 
 		return wasSuccessful
 	}
+
+	document.title = getDocumentTitle("Reset your password")
 
 	return (
 		<>

@@ -13,6 +13,7 @@ import { login } from "@/tools/browser/users"
 import { LoginModel, LoginModelErrorKeys } from "@/tools/definitions/users"
 import { getCurrentUser } from "@/site/currentUser"
 import { login as doLogin } from "@/site/currentUser"
+import { getDocumentTitle } from "@/tools/utils"
 
 const Login: React.FunctionComponent = (): JSX.Element => {
 
@@ -59,6 +60,8 @@ const Login: React.FunctionComponent = (): JSX.Element => {
 		}
 		return true
 	}
+
+	document.title = getDocumentTitle("Log in")
 
 	return (
 		<>

@@ -20,3 +20,7 @@ export function processErrors(errors: Record<string, string[]>, ...expectedKeys:
 
 	return newErrors
 }
+
+export function getDocumentTitle(title: string): string {
+	return `${title} | Bastion of Shadows`
+}

@@ -3,6 +3,7 @@ import { useParams } from "react-router"
 import { Dispatch, SetStateAction, useState, useEffect } from "react"
 import FormErrorList from "@/components/ui/forms/FormErrorList"
 import { performEmailChange } from "@/tools/browser/users"
+import { getDocumentTitle } from "@/tools/utils"
 
 const Confirm: React.FunctionComponent = (): JSX.Element => {
 	const { userId, verificationCode, newEmail } = useParams()
@@ -23,6 +24,8 @@ const Confirm: React.FunctionComponent = (): JSX.Element => {
 	useEffect(() => {
 		confirmNewEmail()
 	}, [])
+
+	document.title = getDocumentTitle("Confirm your new email address")
 
 	return (
 		<section className="app__message-container">

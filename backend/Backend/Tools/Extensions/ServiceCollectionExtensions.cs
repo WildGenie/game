@@ -1,5 +1,4 @@
-using System.Runtime.CompilerServices;
-using System.Text.Json;
+using Core;
 using Core.Options;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -44,12 +43,7 @@ namespace Backend.Tools.Extensions
 		{
 			// Changes the invalid model state response
 			// (this must come after services.AddControllers() in order to have any effect)
-			return services.Configure<ApiBehaviorOptions>(options =>
-			{
-				
-				options.InvalidModelStateResponseFactory = context => new UnprocessableEntityObjectResult(new ApiResponse(context.ModelState));
-			});
-			return services;
+			return services.Configure<ApiBehaviorOptions>(options => { options.InvalidModelStateResponseFactory = context => new UnprocessableEntityObjectResult(new ApiResponse(context.ModelState)); });
 		}
 
 		public static IServiceCollection AddBastionOptions(this IServiceCollection services, IConfiguration config)
@@ -60,6 +54,7 @@ namespace Backend.Tools.Extensions
 		public static IServiceCollection AddBastionApplicationServices(this IServiceCollection services, IConfiguration config)
 		{
 			services.AddTransient<ISendGridClient>(a => new SendGridClient(config["Application:Email:SendGridApiKey"]))
+					.AddTransient<EmailMessages>()
 					.AddScoped<IUserRepository, UserRepository>()
 					.AddScoped<ISpeciesRepository, SpeciesRepository>()
 					.AddScoped<IEmailSenderService, EmailSenderService>()

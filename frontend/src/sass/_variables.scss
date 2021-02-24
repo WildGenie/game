@@ -61,6 +61,7 @@ $light-orange: #FFE0B2;
 
 $gray: #9E9E9E;
 $dark-gray: #212121;
+$less-dark-gray: #333333;
 $light-gray: #E0E0E0;
 
 $white: #FFFFFF;
@@ -68,20 +69,20 @@ $black: $dark-gray;
 
 
 // Theme
-$primary: $purple;
-$primary-light: $light-purple;
+$primary: $yellow;
+$primary-alt: $dark-yellow;
 
 $secondary: $green;
-$secondary-light: $light-green;
+$secondary-alt: $light-green;
 
 $success: $blue;
-$success-light: $light-blue;
+$success-alt: $light-blue;
 
 $info: $pink;
-$info-light: $light-pink;
+$info-alt: $light-pink;
 
 $warning: $red;
-$warning-light: $light-red;
+$warning-alt: $light-red;
 
 
 // Spacing
@@ -106,7 +107,7 @@ $breakpoint-xxl: 1399.98px;
 // Links
 $link-color: $primary;
 $link-decoration: none;
-$link-hover-color: $primary-light;
+$link-hover-color: $primary-alt;
 $link-hover-decoration: underline;
 
 
@@ -162,4 +163,4 @@ $standard-timing: 0.3s ease-out;
 
 // Shadows
 
-$standard-shadow: 0 3px 5px 5px lighten($gray, 30%);
+$standard-shadow: none;

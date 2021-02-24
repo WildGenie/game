@@ -8,6 +8,7 @@ import { required, requireDigit, requireLength, requireLowerCase, requireMatch, 
 import TextField from "@/components/ui/forms/fields/TextField"
 import { ApplicationUserModel, InitiatePasswordChangeModelErrorKeys } from "@/tools/definitions/users"
 import { updateUserPassword } from "@/tools/browser/admin"
+import { getDocumentTitle } from "@/tools/utils"
 
 type PasswordProps = {
 	user: ApplicationUserModel
@@ -52,6 +53,8 @@ const Password: React.FunctionComponent<PasswordProps> = ({ user }: PasswordProp
 
 		return response.wasSuccessful
 	}
+
+	document.title = getDocumentTitle(`Update ${user?.userName}'s password`)
 
 	return (
 		<>

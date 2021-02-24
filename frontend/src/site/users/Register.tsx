@@ -9,6 +9,7 @@ import { useFormInputValidation } from "@/hooks/forms"
 import CheckField from "@/components/ui/forms/fields/CheckField"
 import { register } from "@/tools/browser/users"
 import { RegisterModel } from "@/tools/definitions/users"
+import { getDocumentTitle } from "@/tools/utils"
 
 const Register: React.FunctionComponent = (): JSX.Element => {
 	const history = useHistory()
@@ -73,6 +74,8 @@ const Register: React.FunctionComponent = (): JSX.Element => {
 		}
 		return true
 	}
+
+	document.title = getDocumentTitle("Register")
 
 	return (
 		<Form

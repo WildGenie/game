@@ -12,6 +12,7 @@ import { ApplicationUserModel } from "@/tools/definitions/users"
 import { getUserCount, getUsersByPage } from "@/tools/browser/admin"
 import Navigation from "@/site/admin/Navigation"
 import Pagination from "@/components/ui/Pagination"
+import { getDocumentTitle } from "@/tools/utils"
 
 const UsersList: React.FunctionComponent = (): JSX.Element => {
 
@@ -38,6 +39,8 @@ const UsersList: React.FunctionComponent = (): JSX.Element => {
 	useEffect(() => {
 		getUsers()
 	}, [page, resultsPerPage])
+
+	document.title = getDocumentTitle("View users")
 
 	return (
 		<section className="admin">

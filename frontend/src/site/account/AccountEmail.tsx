@@ -7,6 +7,7 @@ import { useFormInputValidation } from "@/hooks/forms"
 import { required, requireMatch } from "@/tools/validations"
 import TextField from "@/components/ui/forms/fields/TextField"
 import { initiateEmailChange } from "@/tools/browser/users"
+import { getDocumentTitle } from "@/tools/utils"
 
 const AccountEmail: React.FunctionComponent = (): JSX.Element => {
 
@@ -43,6 +44,8 @@ const AccountEmail: React.FunctionComponent = (): JSX.Element => {
 
 		return response.wasSuccessful
 	}
+
+	document.title = getDocumentTitle("Update your email address")
 
 	return (
 		<>

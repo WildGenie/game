@@ -1,1 +1,1 @@
-export const recaptchaSiteKey = "6LeuT78ZAAAAABlehdtVGUJDjQXPB6sqNY9RDTl-"
+export const recaptchaSiteKey = "6LfSGS0aAAAAAN7Xnx2EoqkuGxHXayeqYW2UmMic"

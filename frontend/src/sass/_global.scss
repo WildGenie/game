@@ -1,11 +1,12 @@
 @import "imports";
 
 html {
-	color: $black;
+	color: $white;
 	font-family: $font-family-base;
 	font-size: $font-size-px;
 	font-weight: $font-weight-base;
-	background: $white;
+	line-height: $line-height-base;
+	background: $less-dark-gray;
 	overflow-x: hidden;
 	overflow-y: scroll;
 	box-sizing: border-box;

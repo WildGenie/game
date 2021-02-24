@@ -1,16 +1,12 @@
 @import "/src/sass/imports";
 
 $cell-padding: $spacer-1 0 $spacer-1 $spacer-1;
-$table-link-hover-color: $white;
+$table-link-hover-color: $primary-alt;
 
 .table {
 	table-layout: fixed;
 	width: 100%;
 	border-collapse: collapse;
-
-	a:hover {
-		color: $table-link-hover-color;
-	}
 }
 
 .table__head {
@@ -20,6 +16,7 @@ $table-link-hover-color: $white;
 
 		&:hover {
 			background-color: transparent;
+			color: $white;
 		}
 	}
 }
@@ -49,6 +46,15 @@ $table-link-hover-color: $white;
 	}
 
 	&:hover {
-		background-color: $primary-light;
+		background-color: $primary;
+		color: $less-dark-gray;
+
+		a {
+			color: $less-dark-gray;
+		}
+
+		a:hover {
+			color: $table-link-hover-color;
+		}
 	}
 }

@@ -4,6 +4,7 @@ import {Link} from "react-router-dom"
 import { Dispatch, SetStateAction, useState, useEffect } from "react"
 import FormErrorList from "@/components/ui/forms/FormErrorList"
 import { confirm } from "@/tools/browser/users"
+import { getDocumentTitle } from "@/tools/utils"
 
 const Confirm: React.FunctionComponent = (): JSX.Element => {
 	const { userId, verificationCode } = useParams()
@@ -30,6 +31,8 @@ const Confirm: React.FunctionComponent = (): JSX.Element => {
 	useEffect(() => {
 		confirmAccount()
 	}, [])
+
+	document.title = getDocumentTitle("Confirm your account")
 
 	return (
 		<section className="app__message-container">

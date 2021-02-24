@@ -1,6 +1,7 @@
 import * as React from "react"
 import { useEffect, useState } from "react"
 import { useHistory } from "react-router"
+import { getDocumentTitle } from "@/tools/utils"
 
 const RegisterSuccessful: React.FunctionComponent = (): JSX.Element => {
 	const history = useHistory()
@@ -17,6 +18,9 @@ const RegisterSuccessful: React.FunctionComponent = (): JSX.Element => {
 		const timeoutId = setTimeout(updater, 1000)
 		return () => clearTimeout(timeoutId)
 	}, [countdown])
+
+	document.title = getDocumentTitle("Registration successful")
+
 	return (
 		<section className="app__message-container">
 			<header>

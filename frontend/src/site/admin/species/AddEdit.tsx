@@ -9,6 +9,7 @@ import CheckField from "@/components/ui/forms/fields/CheckField"
 import { addSpecies, editSpecies } from "@/tools/browser/species"
 import { AddSpeciesModel, EditSpeciesModel, SpeciesModel } from "@/tools/definitions/species"
 import { ApiResponse } from "@/tools/definitions/requests"
+import { getDocumentTitle } from "@/tools/utils"
 
 type AddEditProps = {
 	species?: SpeciesModel
@@ -105,6 +106,8 @@ const AddEdit: React.FunctionComponent<AddEditProps> = ({ species }: AddEditProp
 
 		return response.wasSuccessful
 	}
+
+	document.title = getDocumentTitle(species ? `Edit ${species.pluralName}` : "Add new species")
 
 	return (
 		<Form

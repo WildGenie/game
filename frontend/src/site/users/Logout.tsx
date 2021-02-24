@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux"
 import { useHistory } from "react-router-dom"
 import { logout } from "@/tools/browser/users"
 import { logout as doLogout } from "@/site/currentUser"
+import { getDocumentTitle } from "@/tools/utils"
 
 const Logout: React.FunctionComponent = (): JSX.Element => {
 
@@ -25,6 +26,8 @@ const Logout: React.FunctionComponent = (): JSX.Element => {
 
 		return () => clearTimeout(timeoutId)
 	}, [countdown])
+
+	document.title = getDocumentTitle("Log out")
 
 	return (
 		<section>

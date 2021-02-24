@@ -8,5 +8,6 @@ namespace Core.Options
 		public string SendGridApiKey { get; set; }
 		public string EmailFromAddress { get; set; }
 		public string EmailFromName { get; set; }
+		public string ApplicationUrl { get; set; }
 	}
 }

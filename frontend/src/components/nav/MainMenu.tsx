@@ -91,7 +91,10 @@ const MainMenu: React.FunctionComponent = (): JSX.Element => {
 					)
 				})}
 				{isAdmin && (
-					<li className="main-menu__menu-item">
+					<li
+						className="main-menu__menu-item"
+						onClick={() => setOpen(!open)}
+					>
 						<NavLink
 							className="main-menu__link"
 							to="/admin"

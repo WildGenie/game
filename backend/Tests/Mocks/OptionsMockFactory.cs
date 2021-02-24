@@ -13,7 +13,8 @@ namespace Tests.Mocks
 			{
 				EmailFromAddress = "no-reply@bastionofshadows.com",
 				EmailFromName = "Bastion of Shadows",
-				SendGridApiKey = "5up3453c43t"
+				SendGridApiKey = "5up3453c43t",
+				ApplicationUrl = "http://localhost:8080"
 			};
 			return Options.Create(emailOptions);
 		}

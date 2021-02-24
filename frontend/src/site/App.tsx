@@ -15,6 +15,7 @@ import Home from "@/site/Home"
 import Admin from "@/site/admin/Admin"
 import Users from "@/site/users/Users"
 import MyAccount from "@/site/account/MyAccount"
+import FairUse from "@/site/FairUse"
 
 const App = (): JSX.Element => {
 
@@ -41,6 +42,9 @@ const App = (): JSX.Element => {
 
 			<main className="app__body">
 				<Switch>
+					<Route path="/fair-use">
+						<FairUse />
+					</Route>
 					<Route path="/users">
 						<Users />
 					</Route>

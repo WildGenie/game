@@ -6,6 +6,7 @@ import { ApplicationUserModel } from "@/tools/definitions/users"
 import { useCheckInput } from "@/hooks/forms"
 import CheckField from "@/components/ui/forms/fields/CheckField"
 import { addUserToRole } from "@/tools/browser/admin"
+import { getDocumentTitle } from "@/tools/utils"
 
 type RolesProps = {
 	user: ApplicationUserModel
@@ -37,6 +38,8 @@ const Roles: React.FunctionComponent<RolesProps> = ({ user }: RolesProps): JSX.E
 
 		return response.wasSuccessful
 	}
+
+	document.title = getDocumentTitle(`Update ${user?.userName}'s roles`)
 
 	return (
 		<>

@@ -1,6 +1,7 @@
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Core;
 using Moq;
 using Services;
 using Tests.Mocks;
@@ -22,10 +23,11 @@ namespace Tests.Services.EmailSenderServiceTests
 			var logger = LoggerMockFactory.EmailSenderServiceErrorLogger(HttpStatusCode.BadRequest, response);
 
 			var options = OptionsMockFactory.EmailOptions();
+			var emailMessages = new EmailMessages(options);
 
 			var client = EmailSenderServiceMocksFactory.SendGridClient(EmailSenderService.SendWelcomeEmailSubject, HttpStatusCode.BadRequest, new StringContent(response));
 
-			var sender = new EmailSenderService(logger.Object, options, client.Object);
+			var sender = new EmailSenderService(logger.Object, options, client.Object, emailMessages);
 			await sender.SendWelcomeEmail(username, email, userId, verificationCode);
 
 			var logWritten = false;

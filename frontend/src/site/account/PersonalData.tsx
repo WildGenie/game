@@ -11,6 +11,7 @@ import { required } from "@/tools/validations"
 import { deleteAccount } from "@/tools/browser/users"
 import { logout } from "@/site/currentUser"
 import FormErrorList from "@/components/ui/forms/FormErrorList"
+import { getDocumentTitle } from "@/tools/utils"
 
 const PersonalData: React.FunctionComponent = (): JSX.Element => {
 
@@ -43,6 +44,8 @@ const PersonalData: React.FunctionComponent = (): JSX.Element => {
 			setErrors(response.errors["Unknown"])
 		}
 	}
+
+	document.title = getDocumentTitle("Get your personal data")
 
 	return (
 		<section>

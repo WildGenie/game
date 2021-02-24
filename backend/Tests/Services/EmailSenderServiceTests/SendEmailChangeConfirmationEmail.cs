@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Core;
 using Moq;
 using Services;
 using Tests.Mocks;
@@ -19,10 +20,11 @@ namespace Tests.Services.EmailSenderServiceTests
 			var logger = LoggerMockFactory.EmailSenderServiceInformationLogger(EmailSenderService.SendEmailChangeConfirmationEmailSubject);
 
 			var options = OptionsMockFactory.EmailOptions();
+			var emailMessages = new EmailMessages(options);
 
 			var client = EmailSenderServiceMocksFactory.SendGridClient(EmailSenderService.SendEmailChangeConfirmationEmailSubject);
 
-			var sender = new EmailSenderService(logger.Object, options, client.Object);
+			var sender = new EmailSenderService(logger.Object, options, client.Object, emailMessages);
 			await sender.SendEmailChangeConfirmationEmail(username, email, userId, verificationCode);
 
 			var logWritten = false;

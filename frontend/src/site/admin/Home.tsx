@@ -1,7 +1,11 @@
 import * as React from "react"
 import Navigation from "@/site/admin/Navigation"
+import { getDocumentTitle } from "@/tools/utils"
 
 const Home: React.FunctionComponent = (): JSX.Element => {
+
+	document.title = getDocumentTitle("Admin")
+
 	return (
 		<section className="admin">
 			<Navigation/>

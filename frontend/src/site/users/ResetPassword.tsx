@@ -8,6 +8,7 @@ import { required, requireDigit, requireLength, requireLowerCase, requireMatch, 
 import TextField from "@/components/ui/forms/fields/TextField"
 import { resetPassword } from "@/tools/browser/users"
 import { ResetPasswordModelErrorKeys } from "@/tools/definitions/users"
+import { getDocumentTitle } from "@/tools/utils"
 
 const ResetPassword: React.FunctionComponent = (): JSX.Element => {
 
@@ -45,6 +46,8 @@ const ResetPassword: React.FunctionComponent = (): JSX.Element => {
 
 		return true
 	}
+
+	document.title = getDocumentTitle("Change your password")
 
 	return (
 		<>
