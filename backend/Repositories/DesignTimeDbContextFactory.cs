@@ -13,7 +13,7 @@ namespace Repositories
 		public ApplicationDbContext CreateDbContext(string[] args)
 		{
 			var currentDirectory = Directory.GetCurrentDirectory();
-			var appsettings = currentDirectory + "/../Backend/appsettings.json";
+			var appsettings = currentDirectory + "/../Backend/appsettings.Development.json";
 			IConfiguration config = new ConfigurationBuilder()
 									.SetBasePath(currentDirectory)
 									.AddJsonFile(appsettings)
