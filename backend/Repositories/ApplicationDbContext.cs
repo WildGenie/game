@@ -1,11 +1,13 @@
 using System.Diagnostics.CodeAnalysis;
 using Core.DataModels;
 using Core.DataModels.Characters;
+using Core.DataModels.Inventory;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Repositories.Configurations;
 using Repositories.Configurations.Characters;
+using Repositories.Configurations.Inventory;
 
 namespace Repositories
 {
@@ -24,8 +26,10 @@ namespace Repositories
 			modelBuilder.ApplyConfiguration(new RoleConfiguration());
 			modelBuilder.ApplyConfiguration(new UserRoleConfiguration());
 			modelBuilder.ApplyConfiguration(new SpeciesConfiguration());
+			modelBuilder.ApplyConfiguration(new ItemConfiguration());
 		}
 		
 		public DbSet<Species> Species { get; set; }
+		public DbSet<Item> Items { get; set; }
 	}
 }
