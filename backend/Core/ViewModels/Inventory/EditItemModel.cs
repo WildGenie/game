@@ -5,7 +5,7 @@ using Core.DataModels.Inventory;
 namespace Core.ViewModels.Inventory
 {
 	[ExcludeFromCodeCoverage]
-	public class EditItemModel
+	public class EditItemModel : IEntity<int>
 	{
 		public int Id { get; set; }
 		

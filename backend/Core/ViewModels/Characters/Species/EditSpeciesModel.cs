@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace Core.ViewModels.Characters.Species
 {
 	[ExcludeFromCodeCoverage]
-	public class EditSpeciesModel
+	public class EditSpeciesModel : IEntity<int>
 	{
 		[Required]
 		public int Id { get; set; }

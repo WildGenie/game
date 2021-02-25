@@ -24,7 +24,7 @@ namespace Backend.Controllers
 		{
 			var response = new ApiResponse<IList<Species>>
 			{
-				Result = await _speciesService.GetSpecies()
+				Result = await _speciesService.GetEntities()
 			};
 			return Ok(response);
 		}
@@ -32,7 +32,7 @@ namespace Backend.Controllers
 		[HttpGet("{id}")]
 		public async Task<IActionResult> GetSpecies(int id)
 		{
-			var species = await _speciesService.GetSpecies(id);
+			var species = await _speciesService.GetEntity(id);
 			if (species == null)
 				return NotFound();
 
@@ -42,7 +42,7 @@ namespace Backend.Controllers
 		[HttpPost]
 		public async Task<IActionResult> AddSpecies(AddSpeciesModel species)
 		{
-			var result = await _speciesService.AddSpecies(species);
+			var result = await _speciesService.AddEntity(species);
 			if (!result.WasSuccessful)
 				return UnprocessableEntity(new ApiResponse(result));
 
@@ -52,7 +52,7 @@ namespace Backend.Controllers
 		[HttpPatch]
 		public async Task<IActionResult> EditSpecies(EditSpeciesModel species)
 		{
-			var result = await _speciesService.EditSpecies(species);
+			var result = await _speciesService.EditEntity(species);
 			if (!result.WasSuccessful)
 				return UnprocessableEntity(new ApiResponse(result));
 

@@ -8,7 +8,6 @@ using Core.DataModels.Characters;
 using Core.ViewModels.Characters.Species;
 using Microsoft.AspNetCore.Identity;
 using Moq;
-using Repositories.Characters;
 using Services;
 using Services.Characters;
 using Services.Google;
@@ -265,9 +264,9 @@ namespace Tests.Mocks
 		{
 			var mock = new Mock<ISpeciesService>();
 
-			var getSpecies = mock.Setup(s => s.GetSpecies(It.IsAny<int>()));
-			var addSpecies = mock.Setup(s => s.AddSpecies(It.IsAny<AddSpeciesModel>()));
-			var editSpecies = mock.Setup(s => s.EditSpecies(It.IsAny<EditSpeciesModel>()));
+			var getSpecies = mock.Setup(s => s.GetEntity(It.IsAny<int>()));
+			var addSpecies = mock.Setup(s => s.AddEntity(It.IsAny<AddSpeciesModel>()));
+			var editSpecies = mock.Setup(s => s.EditEntity(It.IsAny<EditSpeciesModel>()));
 
 			if (successful)
 			{
@@ -289,7 +288,7 @@ namespace Tests.Mocks
 				editSpecies.ReturnsAsync(new ServiceResult("Mock this bad service result"));
 			}
 
-			mock.Setup(s => s.GetSpecies())
+			mock.Setup(s => s.GetEntities())
 				.ReturnsAsync(new List<Species>
 				{
 					new Species
