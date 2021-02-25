@@ -11,11 +11,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Repositories;
 using Repositories.Characters;
+using Repositories.Inventory;
 using SendGrid;
 using Serilog;
 using Services;
 using Services.Characters;
 using Services.Google;
+using Services.Inventory;
 using Xunit;
 
 namespace Tests.Backend.Tools.Extensions.ServiceCollectionExtensionsTests
@@ -124,6 +126,12 @@ namespace Tests.Backend.Tools.Extensions.ServiceCollectionExtensionsTests
 
 			var speciesService = container.GetService<ISpeciesService>();
 			Assert.NotNull(speciesService);
+
+			var itemRepo = container.GetService<IItemRepository>();
+			Assert.NotNull(itemRepo);
+
+			var itemService = container.GetService<IItemService>();
+			Assert.NotNull(itemService);
 
 			var emailSenderService = container.GetService<IEmailSenderService>();
 			Assert.NotNull(emailSenderService);

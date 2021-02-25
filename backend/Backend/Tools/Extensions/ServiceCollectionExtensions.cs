@@ -5,11 +5,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Repositories;
 using Repositories.Characters;
+using Repositories.Inventory;
 using SendGrid;
 using Serilog;
 using Services;
 using Services.Characters;
 using Services.Google;
+using Services.Inventory;
 
 namespace Backend.Tools.Extensions
 {
@@ -57,8 +59,10 @@ namespace Backend.Tools.Extensions
 					.AddTransient<EmailMessages>()
 					.AddScoped<IUserRepository, UserRepository>()
 					.AddScoped<ISpeciesRepository, SpeciesRepository>()
+					.AddScoped<IItemRepository, ItemRepository>()
 					.AddScoped<IEmailSenderService, EmailSenderService>()
 					.AddScoped<ISpeciesService, SpeciesService>()
+					.AddScoped<IItemService, ItemService>()
 					.AddHttpClient<RecaptchaService>();
 
 			return services;
