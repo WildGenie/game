@@ -9,7 +9,7 @@ namespace Services
 		Task<ServiceResult> AddEntity<TAddModel>(TAddModel model);
 		Task<ServiceResult> EditEntity<TEditModel>(TEditModel model)
 			where TEditModel : IEntity<int>;
-		Task<TModel> GetEntity(int id);
-		Task<IList<TModel>> GetEntities();
+		Task<ServiceResult<TModel>> GetEntity(int id);
+		Task<ServiceResult<IList<TModel>>> GetEntities();
 	}
 }

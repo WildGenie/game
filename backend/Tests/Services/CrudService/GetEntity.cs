@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Core;
 using Core.DataModels.Characters;
 using Repositories.Characters;
 using Services;
@@ -16,10 +17,13 @@ namespace Tests.Services.CrudService
 			var speciesRepo = RepositoryMockFactory.SpeciesRepository();
 			var service = new CrudService<Species, ISpeciesRepository>(speciesRepo.Object);
 
-			var species = await service.GetEntity(1);
+			var result = await service.GetEntity(1);
 
+			Assert.NotNull(result);
+			Assert.IsType<ServiceResult<Species>>(result);
+
+			var species = result.Result;
 			Assert.NotNull(species);
-			Assert.IsType<Species>(species);
 			Assert.Equal("Human", species.Name);
 		}
 
@@ -29,9 +33,24 @@ namespace Tests.Services.CrudService
 			var speciesRepo = RepositoryMockFactory.SpeciesRepository(successful: false);
 			var service = new CrudService<Species, ISpeciesRepository>(speciesRepo.Object);
 
-			var species = await service.GetEntity(1);
+			var result = await service.GetEntity(1);
+			
+			Assert.NotNull(result);
+			Assert.IsType<ServiceResult<Species>>(result);
+		}
 
-			Assert.Null(species);
+		[Fact]
+		public async Task ReturnsErrorServiceResultIfDbThrows()
+		{
+			var speciesRepo = RepositoryMockFactory.SpeciesRepository(throws: true);
+			var service = new CrudService<Species, ISpeciesRepository>(speciesRepo.Object);
+
+			var result = await service.GetEntity(1);
+			
+			Assert.NotNull(result);
+			Assert.IsType<ServiceResult<Species>>(result);
+			Assert.False(result.WasSuccessful);
+			Assert.Equal("A database error occurred. Please try again later.", result.Message);
 		}
 	}
 }

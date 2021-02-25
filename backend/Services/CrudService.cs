@@ -85,8 +85,34 @@ namespace Services
 			return ServiceResult.Success;
 		}
 
-		public virtual Task<TEntity> GetEntity(int id) => Repo.FindById(id);
+		public virtual async Task<ServiceResult<TEntity>> GetEntity(int id)
+		{
+			TEntity result;
+			try
+			{
+				result = await Repo.FindById(id);
+			}
+			catch (Exception e)
+			{
+				return ErrorHandler.HandleDbError<TEntity>(e);
+			}
 
-		public virtual Task<IList<TEntity>> GetEntities() => Repo.GetAll();
+			return new ServiceResult<TEntity>(result);
+		}
+
+		public virtual async Task<ServiceResult<IList<TEntity>>> GetEntities()
+		{
+			IList<TEntity> result;
+			try
+			{
+				result = await Repo.GetAll();
+			}
+			catch (Exception e)
+			{
+				return ErrorHandler.HandleDbError<IList<TEntity>>(e);
+			}
+
+			return new ServiceResult<IList<TEntity>>(result);
+		}
 	}
 }

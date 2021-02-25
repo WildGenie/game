@@ -270,7 +270,7 @@ namespace Tests.Mocks
 
 			if (successful)
 			{
-				getSpecies.ReturnsAsync(new Species
+				getSpecies.ReturnsAsync(new ServiceResult<Species>(new Species
 				{
 					Id = 1,
 					Name = "Human",
@@ -278,7 +278,7 @@ namespace Tests.Mocks
 					Description = "Humans are good and cool",
 					ForceSensitive = true,
 					HpCoefficient = 10.0f
-				});
+				}));
 				addSpecies.ReturnsAsync(ServiceResult.Success);
 				editSpecies.ReturnsAsync(ServiceResult.Success);
 			}
@@ -289,7 +289,7 @@ namespace Tests.Mocks
 			}
 
 			mock.Setup(s => s.GetEntities())
-				.ReturnsAsync(new List<Species>
+				.ReturnsAsync(new ServiceResult<IList<Species>>(new List<Species>
 				{
 					new Species
 					{
@@ -307,7 +307,7 @@ namespace Tests.Mocks
 						StrengthModifier = 0,
 						WisdomModifier = 0
 					}
-				});
+				}));
 
 			return mock;
 		}

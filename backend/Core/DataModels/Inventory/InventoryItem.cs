@@ -1,5 +1,8 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace Core.DataModels.Inventory
 {
+	[ExcludeFromCodeCoverage]
 	public class InventoryItem
 	{
 		public int Id { get; set; }

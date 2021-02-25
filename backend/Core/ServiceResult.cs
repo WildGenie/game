@@ -20,4 +20,17 @@ namespace Core
 			WasSuccessful = false;
 		}
 	}
+
+	public class ServiceResult<TResult> : ServiceResult
+	{
+		public TResult Result { get; }
+		
+		public ServiceResult(string message) : base(message) { }
+		
+		public ServiceResult(TResult result)
+		{
+			WasSuccessful = true;
+			Result = result;
+		}
+	}
 }

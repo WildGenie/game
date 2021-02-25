@@ -22,9 +22,13 @@ namespace Backend.Controllers
 		[HttpGet]
 		public async Task<IActionResult> GetAllSpecies()
 		{
+			var result = await _speciesService.GetEntities();
+			if (!result.WasSuccessful)
+				return StatusCode(500, new ApiResponse(result));
+			
 			var response = new ApiResponse<IList<Species>>
 			{
-				Result = await _speciesService.GetEntities()
+				Result = result.Result
 			};
 			return Ok(response);
 		}
@@ -36,7 +40,7 @@ namespace Backend.Controllers
 			if (species == null)
 				return NotFound();
 
-			return Ok(new ApiResponse<Species>(species));
+			return Ok(new ApiResponse<Species>(species.Result));
 		}
 
 		[HttpPost]

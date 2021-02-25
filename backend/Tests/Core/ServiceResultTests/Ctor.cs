@@ -1,4 +1,5 @@
 using Core;
+using Core.DataModels.Characters;
 using Xunit;
 
 namespace Tests.Core.ServiceResultTests
@@ -21,6 +22,28 @@ namespace Tests.Core.ServiceResultTests
 
 			Assert.False(result.WasSuccessful);
 			Assert.Equal("There was a problem", result.Message);
+		}
+
+		[Fact]
+		public void ReserviceResultWithResultArgReturnsSuccessfulServiceResult()
+		{
+			var species = new Species
+			{
+				Name = "Human"
+			};
+			var result = new ServiceResult<Species>(species);
+
+			Assert.True(result.WasSuccessful);
+			Assert.Equal("Human", result.Result.Name);
+		}
+
+		[Fact]
+		public void ReturnsServiceResultOfTWithErrorMessage()
+		{
+			var result = new ServiceResult<Species>("An error occurred");
+
+			Assert.False(result.WasSuccessful);
+			Assert.Equal("An error occurred", result.Message);
 		}
 	}
 }

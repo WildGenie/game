@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Core;
 using Core.DataModels.Characters;
 using Repositories.Characters;
 using Services;
@@ -17,11 +18,27 @@ namespace Tests.Services.CrudService
 			var speciesRepo = RepositoryMockFactory.SpeciesRepository();
 			var service = new CrudService<Species, ISpeciesRepository>(speciesRepo.Object);
 
-			var species = await service.GetEntities();
+			var result = await service.GetEntities();
 			
+			Assert.NotNull(result);
+			Assert.IsType<ServiceResult<IList<Species>>>(result);
+
+			var species = result.Result;
 			Assert.NotNull(species);
-			Assert.IsType<List<Species>>(species);
 			Assert.Equal(2, species.Count);
+		}
+
+		[Fact]
+		public async Task ReturnsErrorMessageServiceResultIfDatabaseFailed()
+		{
+			var speciesRepo = RepositoryMockFactory.SpeciesRepository(successful: false);
+			var service = new CrudService<Species, ISpeciesRepository>(speciesRepo.Object);
+
+			var result = await service.GetEntities();
+			
+			Assert.NotNull(result);
+			Assert.False(result.WasSuccessful);
+			Assert.Equal("A database error occurred. Please try again later.", result.Message);
 		}
 	}
 }

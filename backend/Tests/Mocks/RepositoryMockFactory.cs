@@ -51,6 +51,7 @@ namespace Tests.Mocks
 			var findById = repo.Setup(s => s.FindById(It.IsAny<int>()));
 			var create = repo.Setup(s => s.Create(It.IsAny<Species>()));
 			var update = repo.Setup(s => s.Update(It.IsAny<Species>()));
+			var getEntities = repo.Setup(s => s.GetAll());
 
 			if (successful)
 			{
@@ -65,25 +66,7 @@ namespace Tests.Mocks
 				};
 
 				findById.ReturnsAsync(species);
-			}
-			else
-			{
-				findById.ReturnsAsync(() => null);
-                create.ThrowsAsync(MockError);
-			}
-			
-			if (throws)
-			{
-				findById.ThrowsAsync(MockError);
-			}
-			
-			if (updateThrows)
-			{
-				update.ThrowsAsync(MockError);
-			}
-
-			repo.Setup(s => s.GetAll())
-				.ReturnsAsync(new List<Species>
+				getEntities.ReturnsAsync(new List<Species>
 				{
 					new Species
 					{
@@ -104,6 +87,23 @@ namespace Tests.Mocks
 						HpCoefficient = 11.0f
 					}
 				});
+			}
+			else
+			{
+				findById.ReturnsAsync(() => null);
+                create.ThrowsAsync(MockError);
+				getEntities.ThrowsAsync(MockError);
+			}
+			
+			if (throws)
+			{
+				findById.ThrowsAsync(MockError);
+			}
+			
+			if (updateThrows)
+			{
+				update.ThrowsAsync(MockError);
+			}
 
 			return repo;
 		}
