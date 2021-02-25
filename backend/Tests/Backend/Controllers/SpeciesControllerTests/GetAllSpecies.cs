@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Backend.Controllers;
 using Backend.Tools;
+using Core;
 using Core.DataModels.Characters;
 using Microsoft.AspNetCore.Mvc;
 using Tests.Mocks;
@@ -35,6 +36,23 @@ namespace Tests.Backend.Controllers.SpeciesControllerTests
 			Assert.NotEmpty(result.Result);
 			Assert.Single(result.Result);
 			Assert.Equal("Human", result.Result[0].Name);
+		}
+
+		[Fact]
+		public async Task ReturnsObjectResultIfLookupThrows()
+		{
+			var speciesService = ServiceMockFactory.SpeciesService(successful: false, throws: true);
+			var controller = new SpeciesController(speciesService.Object);
+
+			var response = await controller.GetAllSpecies();
+			Assert.IsType<ObjectResult>(response);
+			
+			var result = (response as ObjectResult)?.Value as ApiResponse ?? new ApiResponse(new ServiceResult());
+			
+			Assert.NotEmpty(result.Errors);
+			Assert.Contains("General", result.Errors.Keys);
+			Assert.Single(result.Errors["General"]);
+			Assert.Equal("Mock this bad service result", result.Errors["General"][0]);
 		}
 	}
 }

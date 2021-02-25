@@ -260,11 +260,12 @@ namespace Tests.Mocks
 			return new RecaptchaService(client, logger, config);
 		}
 
-		public static Mock<ISpeciesService> SpeciesService(bool successful = true)
+		public static Mock<ISpeciesService> SpeciesService(bool successful = true, bool throws = false)
 		{
 			var mock = new Mock<ISpeciesService>();
 
 			var getSpecies = mock.Setup(s => s.GetEntity(It.IsAny<int>()));
+			var getAllSpecies = mock.Setup(s => s.GetEntities());
 			var addSpecies = mock.Setup(s => s.AddEntity(It.IsAny<AddSpeciesModel>()));
 			var editSpecies = mock.Setup(s => s.EditEntity(It.IsAny<EditSpeciesModel>()));
 
@@ -281,15 +282,7 @@ namespace Tests.Mocks
 				}));
 				addSpecies.ReturnsAsync(ServiceResult.Success);
 				editSpecies.ReturnsAsync(ServiceResult.Success);
-			}
-			else
-			{
-				addSpecies.ReturnsAsync(new ServiceResult("Mock this bad service result"));
-				editSpecies.ReturnsAsync(new ServiceResult("Mock this bad service result"));
-			}
-
-			mock.Setup(s => s.GetEntities())
-				.ReturnsAsync(new ServiceResult<IList<Species>>(new List<Species>
+				getAllSpecies.ReturnsAsync(new ServiceResult<IList<Species>>(new List<Species>
 				{
 					new Species
 					{
@@ -308,6 +301,20 @@ namespace Tests.Mocks
 						WisdomModifier = 0
 					}
 				}));
+			}
+			else if (throws)
+			{
+				var result = new ServiceResult("Mock this bad service result");
+                getSpecies.ReturnsAsync(new ServiceResult<Species>("Mock this bad service result"));
+                getAllSpecies.ReturnsAsync(new ServiceResult<IList<Species>>("Mock this bad service result"));
+                addSpecies.ReturnsAsync(result);
+                editSpecies.ReturnsAsync(result);
+			}
+			else
+			{
+				getSpecies.ReturnsAsync(new ServiceResult<Species>(null as Species));
+				getAllSpecies.ReturnsAsync(new ServiceResult<IList<Species>>(new List<Species>()));
+			}
 
 			return mock;
 		}

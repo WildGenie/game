@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Backend.Tools;
 using Core.DataModels.Characters;
 using Core.ViewModels.Characters.Species;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Services.Characters;
 
@@ -24,7 +25,7 @@ namespace Backend.Controllers
 		{
 			var result = await _speciesService.GetEntities();
 			if (!result.WasSuccessful)
-				return StatusCode(500, new ApiResponse(result));
+				return StatusCode(StatusCodes.Status500InternalServerError, new ApiResponse(result));
 			
 			var response = new ApiResponse<IList<Species>>
 			{
@@ -36,11 +37,15 @@ namespace Backend.Controllers
 		[HttpGet("{id}")]
 		public async Task<IActionResult> GetSpecies(int id)
 		{
-			var species = await _speciesService.GetEntity(id);
-			if (species == null)
+			var result = await _speciesService.GetEntity(id);
+			
+			if (!result.WasSuccessful)
+				return StatusCode(StatusCodes.Status500InternalServerError, new ApiResponse(result));
+			
+			if (result.Result == null)
 				return NotFound();
 
-			return Ok(new ApiResponse<Species>(species.Result));
+			return Ok(new ApiResponse<Species>(result.Result));
 		}
 
 		[HttpPost]

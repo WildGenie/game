@@ -13,7 +13,7 @@ namespace Tests.Backend.Controllers.SpeciesControllerTests
 		[Fact]
 		public async Task ReturnsBadRequestIfAddSpeciesFails()
 		{
-			var speciesService = ServiceMockFactory.SpeciesService(successful: false);
+			var speciesService = ServiceMockFactory.SpeciesService(successful: false, throws: true);
 			var controller = new SpeciesController(speciesService.Object);
 
 			var response = await controller.AddSpecies(new AddSpeciesModel());
