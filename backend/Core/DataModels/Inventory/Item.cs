@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Core.DataModels.Inventory
 {
+	[ExcludeFromCodeCoverage]
 	public class Item
 	{
 		public int Id { get; set; }
