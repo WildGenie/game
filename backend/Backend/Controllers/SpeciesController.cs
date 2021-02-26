@@ -26,11 +26,12 @@ namespace Backend.Controllers
 			var result = await _speciesService.GetEntities();
 			if (!result.WasSuccessful)
 				return StatusCode(StatusCodes.Status500InternalServerError, new ApiResponse(result));
-			
+
 			var response = new ApiResponse<IList<Species>>
 			{
 				Result = result.Result
 			};
+
 			return Ok(response);
 		}
 
@@ -38,10 +39,10 @@ namespace Backend.Controllers
 		public async Task<IActionResult> GetSpecies(int id)
 		{
 			var result = await _speciesService.GetEntity(id);
-			
+
 			if (!result.WasSuccessful)
 				return StatusCode(StatusCodes.Status500InternalServerError, new ApiResponse(result));
-			
+
 			if (result.Result == null)
 				return NotFound();
 
