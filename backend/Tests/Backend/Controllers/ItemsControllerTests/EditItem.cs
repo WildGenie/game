@@ -9,7 +9,7 @@ using Xunit;
 
 namespace Tests.Backend.Controllers.ItemsControllerTests
 {
-	public class EditSpecies
+	public class EditItem
 	{
 		[Fact]
 		public async Task ReturnsBadRequestIfEditSpeciesFails()

@@ -11,7 +11,7 @@ using Xunit;
 
 namespace Tests.Backend.Controllers.ItemsControllerTests
 {
-	public class GetAllSpecies
+	public class GetItems
 	{
 		[Fact]
 		public async Task ReturnsOkObjectResult()
