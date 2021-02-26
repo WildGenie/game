@@ -5,13 +5,16 @@ using System.Security.Claims;
 using Core;
 using Core.DataModels;
 using Core.DataModels.Characters;
+using Core.DataModels.Inventory;
 using Core.ViewModels.Characters.Species;
+using Core.ViewModels.Inventory;
 using Microsoft.AspNetCore.Identity;
 using Moq;
 using Services;
 using Services.Characters;
 using Services.Google;
 using Services.Identity;
+using Services.Inventory;
 
 namespace Tests.Mocks
 {
@@ -314,6 +317,42 @@ namespace Tests.Mocks
 			{
 				getSpecies.ReturnsAsync(new ServiceResult<Species>(null as Species));
 				getAllSpecies.ReturnsAsync(new ServiceResult<IList<Species>>(new List<Species>()));
+			}
+
+			return mock;
+		}
+
+		public static Mock<IItemService> ItemService(bool successful = true, bool throws = false)
+		{
+			var mock = new Mock<IItemService>();
+
+			var getItem = mock.Setup(s => s.GetEntity(It.IsAny<int>()));
+			var getItems = mock.Setup(s => s.GetEntities());
+			var addItem = mock.Setup(s => s.AddEntity(It.IsAny<AddItemModel>()));
+			var editItem = mock.Setup(s => s.EditEntity(It.IsAny<EditItemModel>()));
+
+			if (successful)
+			{
+				getItem.ReturnsAsync(new ServiceResult<Item>(new Item { Name = "SomeItem" }));
+				addItem.ReturnsAsync(ServiceResult.Success);
+				editItem.ReturnsAsync(ServiceResult.Success);
+				getItems.ReturnsAsync(new ServiceResult<IList<Item>>(new List<Item>
+				{
+					new Item { Name = "SomeItem" }
+				}));
+			}
+			else if (throws)
+			{
+				var result = new ServiceResult("Mock this bad service result");
+				getItem.ReturnsAsync(new ServiceResult<Item>("Mock this bad service result"));
+				getItems.ReturnsAsync(new ServiceResult<IList<Item>>("Mock this bad service result"));
+				addItem.ReturnsAsync(result);
+				editItem.ReturnsAsync(result);
+			}
+			else
+			{
+				getItem.ReturnsAsync(new ServiceResult<Item>(null as Item));
+				getItems.ReturnsAsync(new ServiceResult<IList<Item>>(new List<Item>()));
 			}
 
 			return mock;
