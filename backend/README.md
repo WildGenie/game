@@ -10,3 +10,14 @@ I strive for 100% coverage of Bastion of Shadows' backend. However, even the bes
 ##### Controllers.UsersController.AddUserToRole
 
 - `var userRoles = user.Roles.Select(r => r.Name);` I'm not sure exactly why this line isn't covered. Typically, if an uncoverable line is implicitly covered by a subsequent line, it's considered covered. However, while this line is covered by the next line implicitly, it isn't considered covered here. However, this line doesn't represent an untested portion of the code, so it doesn't contribute to potential bugs.
+
+### Uncovered branches
+#### Repositories
+
+##### Repository
+
+All three uncovered branches in this file are due to a known bug in Coverlet. Coverlet uses state machines to determine branch coverage, which works nicely most of the time. However, in some circumstances, async/await syntax creates uncoverable state machines. This happened three times in `Repository`. These aren't uncovered branches - they just appear to be because of how Coverlet calculates cyclomatic complexity.
+
+- `return await Context.Set<TEntity>().FindAsync(id)`
+- `await Context.Set<TEntity>().AddAsync(entity)`
+- `var entity = await Context.Set<TEntity>().FindAsync(id)`
